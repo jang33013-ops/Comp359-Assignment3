@@ -8,7 +8,7 @@ filters to max degree <= 3, and stops if results exceed 100 graphs.
 
 import itertools
 from decode_prufer import decode_prufer
-
+import json
 
 def get_max_degree(edges, n):
    
@@ -54,3 +54,7 @@ if __name__ == "__main__":
     print(f"n=7 | checked: {total_checked} | accepted: {len(accepted)} | stopped early: {stopped_early}")
     for i, edges in enumerate(accepted, 1):
         print(f"  Tree {i:3d}: {edges}")
+    with open("accepted_trees.json", "w") as f:
+        json.dump(accepted, f)
+    
+    print(f"Accepted {len(accepted)} trees saved to accepted_trees.json")
