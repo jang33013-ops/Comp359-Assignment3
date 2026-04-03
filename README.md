@@ -21,7 +21,7 @@ The three core results this assignment builds on:
 | Member 3 | *(fill in)* | *(fill in)* | Prüfer code decoding and tree reconstruction |
 | Member 4 | *(fill in)* | *(fill in)* | Prüfer code encoding and one-to-one correspondence |
 | Member 5 | *(fill in)* | *(fill in)* | Tree generation and filtering |
-| Member 6 | *(fill in)* | *(fill in)* | Visualization, colours, and final integration |
+| Member 6 | Simran Bola | simran12m   | Visualization, colours, and final integration |
 
 ---
 
@@ -44,7 +44,7 @@ The three core results this assignment builds on:
 ├── generate_trees.py           ← Member 5: tree generation and filtering
 ├── test_generate_trees.py      ← Member 5: test cases for generation
 │
-└── visualize_trees.py          ← Member 6: drawing and image output
+└── tree_visualization.py          ← Member 6: drawing and image output
 ```
 
 ---
