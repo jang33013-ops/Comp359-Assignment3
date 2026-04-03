@@ -22,7 +22,7 @@
 | | | Explain why no simple closed formula exists for unlabeled trees |
 | | | Implement comparison.py |
 | | | Build labeled vs unlabeled comparison table |
-| | | Prepare presentation slide |
+| |Prepare presentation slide |  |
 
 ---
 
@@ -36,7 +36,7 @@
 | | | Write test cases in test_decode_prufer.py |
 | | | Debug failing tests (Test 3 and Test 7) |
 | | | Write DEBUGGING.md |
-
+| |Prepare presentation slide |  |
 ---
 
 ### Member 4 — Prüfer Code Encoding and One-to-One Correspondence
@@ -48,7 +48,7 @@
 | | | Verify encode → decode gives back original tree |
 | | | Write test cases in test_encode_prufer.py |
 | | | Prepare examples showing both directions (tree→code, code→tree) |
-
+| |Prepare presentation slide |  |
 ---
 
 ### Member 5 — Tree Generation and Filtering
@@ -61,7 +61,7 @@
 | | | Add stop-at-100 rule |
 | | | Write test cases in test_generate_trees.py |
 | | | Verify n=7 with max degree 3 produces 100 accepted trees |
-
+| |Prepare presentation slide |  |
 ---
 
 ### Member 6 — Visualization, Colours, and Final Integration
@@ -75,7 +75,7 @@
 | | | Save final images |
 | | | Combine all members' work into final submission |
 | | | Review README and repo for consistency |
-
+| |Prepare presentation slide |  |
 ---
 
 ## Overall Timeline
@@ -93,7 +93,6 @@
 | Tree visualization images | Member 6 | Done |
 | README.md | All | Done |
 | PLAN.md | All | Done |
-| DEBUGGING.md | Member 3 | Done |
 | Final review and submission | All | Done |
 
 ---
