@@ -16,7 +16,7 @@ The three core results this assignment builds on:
 
 | Member | Name | GitHub | Responsibility |
 |--------|------|--------|----------------|
-| Member 1 | Gavin Mcnaughton | alashir | Cayley's formula and labeled tree theory write-up |
+| Member 1 | Gavin McNaughton | alashir | Cayley's formula and labeled tree theory write-up |
 | Member 2 | *(fill in)* | *(fill in)* | Unlabeled trees and formula comparison |
 | Member 3 | *(fill in)* | *(fill in)* | Prüfer code decoding and tree reconstruction |
 | Member 4 | *(fill in)* | *(fill in)* | Prüfer code encoding and one-to-one correspondence |
