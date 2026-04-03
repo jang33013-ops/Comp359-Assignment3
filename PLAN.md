@@ -1,6 +1,6 @@
 # COMP359 — Assignment 3: Plan of Work
 
-## Kanban Task Board
+## Task Board
 
 ### Member 1 — Cayley's Formula and Labeled Tree Theory
 
