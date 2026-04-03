@@ -10,7 +10,7 @@
 | | | Study connection between labeled trees and Prüfer codes |
 | | | Prepare theory write-up |
 | | | Build example table for n = 1 to 7 |
-| | | Prepare presentation slide |
+| | Prepare presentation slide|  |
 
 ---
 
