@@ -13,7 +13,7 @@ The answer is surprisingly clean: exactly **n^(n−2)**. This is Cayley's formul
 | Member | Name | GitHub | Responsibility |
 |--------|------|--------|----------------|
 | Member 1 | Gavin McNaughton | alashir | Cayley's formula and labeled tree theory write-up |
-| Member 2 | *(fill in)* | *(fill in)* | Unlabeled trees and formula comparison |
+| Member 2 | *Dhananjay Sharma* | *Dhananjay-FK* | Unlabeled trees and formula comparison |
 | Member 3 | Mayank | Mayank_18 | Prüfer code decoding and tree reconstruction |
 | Member 4 | Kartik Bhanot | kartikb11 | Prüfer code encoding and one-to-one correspondence |
 | Member 5 | Mayank | Mayank_18 | Tree generation and filtering |
@@ -90,21 +90,57 @@ Member 1 prepared the full theory write-up (see `Theory Write-up` in the repo), 
 
 ### Member 2 — Labeled vs Unlabeled Trees
 
-Labeled trees are easy to count because labels make trees distinguishable — rotating or reflecting a tree gives a different labeled tree if the vertex numbers change position. Unlabeled trees only care about shape, so trees that are mirror images or rotations of each other count as one.
+## 1. Background: Labeled Trees and Cayley's Formula
 
-This makes unlabeled trees much harder to count. There is no simple closed formula equivalent to n^(n−2). The counts must be looked up from sequences like OEIS A000055:
+A **labeled tree** on $n$ vertices is a tree in which every vertex is assigned a distinct integer from $\{1, 2, \ldots, n\}$. Two labeled trees are considered distinct whenever their vertex labels differ, even if the underlying structure is identical. Cayley's formula gives an exact count:
 
-| n | Labeled (n^(n−2)) | Unlabeled |
-|---|-------------------|-----------|
-| 1 | 1 | 1 |
-| 2 | 1 | 1 |
-| 3 | 3 | 1 |
-| 4 | 16 | 2 |
-| 5 | 125 | 3 |
-| 6 | 1,296 | 6 |
-| 7 | 823,543 | 11 |
+$$T_{\text{labeled}}(n) = n^{n-2}$$
 
-Notice how the labeled count explodes (823,543 for n=7) while the unlabeled count stays small (only 11 distinct shapes). Member 2 implemented `comparison.py` to print this table and explain why the gap exists.
+This result follows directly from the bijection with Prüfer sequences: every labeled tree on $n$ vertices corresponds to a unique sequence of length $n-2$ over $\{1, \ldots, n\}$, and there are exactly $n^{n-2}$ such sequences. The formula is simple, closed-form, and computable in $O(1)$ arithmetic
+
+## 2. The Labeled vs. Unlabeled Gap
+
+The contrast between the two counts becomes clear even at small values of $n$.
+
+**Table 1.** Labeled and unlabeled tree counts for $n = 1$ to $10$.
+
+| $n$ | Unlabeled $t(n)$ | Labeled $n^{n-2}$ | Ratio |
+|-----|-----------------|-------------------|-------|
+| 1   | 1               | 1                 | 1     |
+| 2   | 1               | 1                 | 1     |
+| 3   | 1               | 3                 | 3     |
+| 4   | 2               | 16                | 8     |
+| 5   | 3               | 125               | ~42   |
+| 6   | 6               | 1,296             | 216   |
+| 7   | 11              | 16,807            | ~1,528 |
+| 8   | 23              | 262,144           | ~11,397 |
+| 9   | 47              | 4,782,969         | ~101,765 |
+| 10  | 106             | 100,000,000       | ~943,396 |
+
+*Cayley's formula.*
+
+The ratio column captures the redundancy that labels introduce. At $n = 4$, for instance, all 16 labeled trees are isomorphic to one of only two distinct shapes: a path $P_4$ (degree sequence $[1,1,2,2]$) or a star $K_{1,3}$ (degree sequence $[1,1,1,3]$). Every labeled tree is structurally one of these two shapes — the labels simply distinguish which vertex occupies which position. By $n = 10$, a single unlabeled shape corresponds to roughly 943,000 labeled trees on average, illustrating how much structural information vertex labels encode.
+
+## 3. Asymptotic Growth
+
+Despite the absence of a closed form, the asymptotic behaviour of $t(n)$ is well understood. Otter (1948) showed:
+
+$$t(n) \sim C \cdot \alpha^n \cdot n^{-5/2}, \qquad \alpha \approx 2.9557\ldots,\quad C \approx 0.5349\ldots$$
+
+Unlabeled trees therefore grow **exponentially** in $n$, whereas labeled trees grow super-exponentially as $n^{n-2}$. The gap between the two rates — visible in Figure 1 — reflects precisely the redundancy of labeling: the vast majority of labeled trees are relabelings of the same underlying shape.
+
+*Figure 1 (see chart): log₁₀ of labeled vs. unlabeled tree counts for n = 1 to 10. The diverging curves illustrate the super-exponential growth of labeled trees against the much slower exponential growth of unlabeled trees.*
+
+## 6. Summary
+
+Labeled and unlabeled trees answer fundamentally different counting questions. Labeled trees count ordered, distinguishable objects and admit the clean closed form $n^{n-2}$ via Prüfer sequences. Unlabeled trees count structural shapes up to isomorphism, a harder problem because tree symmetry varies and no bijection to a simply-counted set is known. The result is a recursive formula with no closed-form equivalent, and a growth rate that — while still exponential — is far slower than the labeled case. The ratio between the two counts grows without bound, reaching nearly $10^6$ by $n = 10$, underscoring how much combinatorial information vertex labels contribute.
+
+## References
+
+- F. Harary and E. M. Palmer, *Graphical Enumeration*, Academic Press, 1973.
+- R. Otter, "The number of trees," *Annals of Mathematics*, 49(3), 1948.
+- UBC handout on Cayley's formula and Prüfer sequences.
+- Graph Theory 12: Cayley's Tree Theorem (YouTube).
 
 ---
 
