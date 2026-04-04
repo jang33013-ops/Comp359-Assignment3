@@ -35,7 +35,7 @@ The f-string was printing the dictionary key-value string instead of just the in
 
 ### Final Run — Correct Output
 
-![Member 2 comparison output](https://github.com/user-attachments/assets/4a459ef8-4916-4bde-b0a4-736db7a451c0)
+![Member 2 comparison output](https://github.com/user-attachments/assets/0c45f95d-3fe9-4639-b5a1-1d32a9520eb5)
 
 The table now prints correctly with clean integer values in both columns.
 
@@ -51,7 +51,7 @@ A function `decode_prufer(code)` that takes a Prüfer sequence and returns an ed
 
 `decode_prufer_verbose()` was run on three example codes to verify the algorithm was working correctly before writing tests. The screenshot below shows the full trace for codes `[1, 1]`, `[2, 3]`, and `[1, 1, 3]`:
 
-![Member 3 verbose trace](https://github.com/user-attachments/assets/0c45f95d-3fe9-4639-b5a1-1d32a9520eb5)
+![Member 3 verbose trace](https://github.com/user-attachments/assets/d4d31de0-3dcb-4bb6-a983-0bc7a4914d4dx)
 
 Each step shows the remaining code, available labels, which leaf is picked, and which edge is added. This trace was later used to find the root cause of the test failures below.
 
@@ -132,7 +132,7 @@ A function `generate_trees(n, max_degree, stop_at)` that generates all Prüfer s
 
 ### Test Run — All 18 Passing First Time
 
-![Member 5 all 18 tests passing](https://github.com/user-attachments/assets/d4d31de0-3dcb-4bb6-a983-0bc7a4914d4d)
+![Member 5 all 18 tests passing](https://github.com/user-attachments/assets/4a459ef8-4916-4bde-b0a4-736db7a451c0)
 
 4 tests for `get_max_degree()` and 14 tests for `generate_trees()` — all 18 passing on the first run. Tests covered n=2 through n=7, edge cases like max_degree=1, stop_at=3, and the n=1 ValueError.
 
