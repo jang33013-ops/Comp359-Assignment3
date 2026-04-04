@@ -2,8 +2,7 @@
 Tests for decode_prufer()
 """
 
-from decode_prufer import decode_prufer
-
+from prufer_decoder import decode_prufer
 
 
 tests = [
