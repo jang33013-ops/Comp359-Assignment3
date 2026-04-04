@@ -19,7 +19,7 @@ The three core results this assignment builds on:
 | Member 1 | Gavin McNaughton | alashir | Cayley's formula and labeled tree theory write-up |
 | Member 2 | *(fill in)* | *(fill in)* | Unlabeled trees and formula comparison |
 | Member 3 | *(fill in)* | *(fill in)* | Prüfer code decoding and tree reconstruction |
-| Member 4 | *(fill in)* | *(fill in)* | Prüfer code encoding and one-to-one correspondence |
+| Member 4 | Kartik Bhanot | kartikb11 | Prüfer code encoding and one-to-one correspondence |
 | Member 5 | *(fill in)* | *(fill in)* | Tree generation and filtering |
 | Member 6 | Simran Bola | simran12m   | Visualization, colours, and final integration |
 
@@ -239,6 +239,9 @@ visualize_trees.py
 7. Python Software Foundation. (2024). *itertools — Functions creating iterators for efficient looping*. Python 3 Documentation. https://docs.python.org/3/library/itertools.html
 8. NetworkX Developers. (2024). *NetworkX documentation*. https://networkx.org/documentation/stable/
 9. Anthropic. (2024). *Claude AI* [AI assistant]. https://www.anthropic.com
+10. TheTrevTutor. (2015). Graph theory 12: Cayley’s tree theorem [Video]. YouTube. https://www.youtube.com/watch?v=Wi8IvnlMNxs
+11. Last Moment Tuitions. (2020). Prufer code generation for labelled trees [Video]. YouTube. https://www.youtube.com/watch?v=ndqIVWV--yw
+12. Dr. Trefor Bazett. (2020). Cayley’s formula and Prüfer sequences [Video]. YouTube. https://www.youtube.com/watch?v=Ve447EOW8ww
 
 ---
 
