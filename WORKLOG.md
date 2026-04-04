@@ -17,16 +17,14 @@ The first run produced incorrect output. The unlabeled column was printing text 
   ![01](bugs.jpg)
 
 
-### Fix
-
-The f-string was printing the dictionary key-value string instead of just the integer value. Fixed the print statement to extract only the value.
-  ![02](correct_output.jpg)
-
 ### Final Run — Correct Output
 
 ![Member 2 comparison output](https://github.com/user-attachments/assets/0c45f95d-3fe9-4639-b5a1-1d32a9520eb5)
 
 The table now prints correctly with clean integer values in both columns.
+
+  ![02](correct_output.jpg)
+
 
 ---
 
