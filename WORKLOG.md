@@ -51,7 +51,7 @@ A function `decode_prufer(code)` that takes a Prüfer sequence and returns an ed
 
 `decode_prufer_verbose()` was run on three example codes to verify the algorithm was working correctly before writing tests. The screenshot below shows the full trace for codes `[1, 1]`, `[2, 3]`, and `[1, 1, 3]`:
 
-![Member 3 verbose trace](https://github.com/user-attachments/assets/d4d31de0-3dcb-4bb6-a983-0bc7a4914d4dx)
+![Member 3 verbose trace](https://github.com/user-attachments/assets/94374044-5c27-462d-b0e4-0614bd831aaa)
 
 Each step shows the remaining code, available labels, which leaf is picked, and which edge is added. This trace was later used to find the root cause of the test failures below.
 
