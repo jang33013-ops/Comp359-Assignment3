@@ -102,7 +102,7 @@ The expected values written manually in the test file were wrong. The edge order
 
 ### Final Test Run — All Passing
 
-![Member 3 all tests passing](https://github.com/user-attachments/assets/031b8110-a4f5-4e70-8cde-32c200dfaa29)
+![Member 3 all tests passing](https://github.com/user-attachments/assets/041d4c3d-1e70-4af0-a07d-5761753ae92c)
 
 7 tests + 2 error-handling tests all passing. The algorithm was correct from the start — only the expected values in the test file needed fixing.
 
@@ -118,7 +118,7 @@ A function `encode_prufer(tree_edges, n)` that converts a labeled tree into its 
 
 Three trees were tested — two with known expected codes, one without. The screenshot below shows all three passing:
 
-![Member 4 encode round-trip tests](https://github.com/user-attachments/assets/041d4c3d-1e70-4af0-a07d-5761753ae92c)
+![Member 4 encode round-trip tests](https://github.com/user-attachments/assets/a556fd92-42b4-490a-952b-2b23da8de89b)
 
 All three confirmed that `encode → decode` gives back the original tree exactly. The round-trip verification proves the bijection is working correctly in both directions — every tree maps to a unique code and back.
 
