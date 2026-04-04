@@ -80,7 +80,7 @@ python tree_visualization.py    # Member 6: draw and save tree images to results
 
 ## What We Did and Why
 
-### Member 1 — Cayley's Formula (Gavin McNaughton)
+### Member 1 — Cayley's Formula 
 
 The number of labeled trees on n vertices is n^(n−2). This is proven using the Prüfer sequence bijection: since every labeled tree maps to a unique sequence of length n−2 over labels 1..n, and there are n^(n−2) such sequences, there must be exactly n^(n−2) labeled trees. The bijection works in both directions — every sequence decodes to exactly one tree, and every tree encodes to exactly one sequence — which is what makes it a proof.
 
@@ -148,7 +148,7 @@ A second function `decode_prufer_verbose(code)` prints every step of the algorit
 
 ---
 
-### Member 4 — Encoding a Tree into a Prüfer Sequence (Kartik Bhanot)
+### Member 4 — Encoding a Tree into a Prüfer Sequence 
 
 Encoding is the reverse direction: given a labeled tree as an edge list, produce its Prüfer sequence. The algorithm mirrors the decoding process — repeatedly find the leaf with the smallest label, record its neighbour, remove it, and repeat until two vertices remain.
 
@@ -183,7 +183,7 @@ accepted, stopped_early, total_checked = generate_trees(7, max_degree=3, stop_at
 
 ---
 
-### Member 6 — Visualization (Simran Bola)
+### Member 6 — Visualization 
 
 Member 6 takes the 100 accepted trees from Member 5 and draws each one using NetworkX and matplotlib. Numeric vertex labels are replaced with colours so the nodes can stay small enough to fit cleanly in the image. The final output is a set of saved image files showing all filtered trees for n=7 with max degree 3.
 
