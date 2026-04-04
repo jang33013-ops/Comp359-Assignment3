@@ -176,7 +176,7 @@ Loaded 100 accepted trees
 Saved 100 tree images successfully!
 ```
 
-100 PNG files saved (`tree_1.png` through `tree_100.png`), each showing a labeled tree on 7 vertices with max degree 3, drawn with coloured nodes and no numeric labels.
+100 PNG files saved (tree_1.png through tree_100.png) in the results/ folder, each showing...
 
 ---
 
