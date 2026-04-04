@@ -14,24 +14,13 @@ A script that compares labeled tree counts (using Cayley's formula n^(n−2)) ag
 
 The first run produced incorrect output. The unlabeled column was printing text like `unlabeled =1` instead of just the number:
 
-```
-PS E:\Download> python comparison.py
-Comparison of Labeled vs Unlabeled trees
---------------------------------------------------
-n     Labeled      Unlabeled
---------------------------------------------------
-1     1            unlabeled =1
-2     1            unlabeled =1
-3     3            unlabeled =1
-4     16           unlabeled =2
-5     125          unlabeled =3
-6     1296         unlabeled =6
-7     16807        unlabeled =11
-```
+  ![01](bugs.jpg)
+
 
 ### Fix
 
 The f-string was printing the dictionary key-value string instead of just the integer value. Fixed the print statement to extract only the value.
+  ![02](correct_output.jpg)
 
 ### Final Run — Correct Output
 
