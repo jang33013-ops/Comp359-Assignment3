@@ -14,9 +14,9 @@ The answer is surprisingly clean: exactly **n^(n−2)**. This is Cayley's formul
 |--------|------|--------|----------------|
 | Member 1 | Gavin McNaughton | alashir | Cayley's formula and labeled tree theory write-up |
 | Member 2 | *(fill in)* | *(fill in)* | Unlabeled trees and formula comparison |
-| Member 3 | *(fill in)* | *(fill in)* | Prüfer code decoding and tree reconstruction |
+| Member 3 | Mayank | Mayank_18 | Prüfer code decoding and tree reconstruction |
 | Member 4 | Kartik Bhanot | kartikb11 | Prüfer code encoding and one-to-one correspondence |
-| Member 5 | *(fill in)* | *(fill in)* | Tree generation and filtering |
+| Member 5 | Mayank | Mayank_18 | Tree generation and filtering |
 | Member 6 | Simran Bola | simran12m | Visualization, colours, and final integration |
 
 ---
@@ -257,6 +257,3 @@ tree_visualization.py → results/
 11. NetworkX Developers. (2024). *NetworkX documentation*. https://networkx.org/documentation/stable/
 12. Anthropic. (2024). *Claude AI* [AI assistant]. https://www.anthropic.com
 
----
-
-*AI usage note: Claude (Anthropic) was used to assist with implementing and testing `decode_prufer()`, `generate_trees()`, and `get_max_degree()`, generating test cases, debugging, and writing documentation. All algorithmic logic was reviewed and verified by group members against course materials.*
