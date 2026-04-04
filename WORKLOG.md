@@ -19,7 +19,7 @@ The first run produced incorrect output. The unlabeled column was printing text 
 
 ### Final Run — Correct Output
 
-![Member 2 comparison output](https://github.com/user-attachments/assets/0c45f95d-3fe9-4639-b5a1-1d32a9520eb5)
+![Member 2 comparison output]
 
 The table now prints correctly with clean integer values in both columns.
 
