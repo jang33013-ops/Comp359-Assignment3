@@ -19,8 +19,6 @@ The first run produced incorrect output. The unlabeled column was printing text 
 
 ### Final Run — Correct Output
 
-![Member 2 comparison output]
-
 The table now prints correctly with clean integer values in both columns.
 
   ![02](correct_output.jpg)
