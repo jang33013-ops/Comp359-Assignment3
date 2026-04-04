@@ -38,7 +38,7 @@ The three core results this assignment builds on:
 ├── decode_prufer.py            ← Member 3: Prüfer decoding implementation
 ├── test_decode_prufer.py       ← Member 3: test cases for decoding
 │
-├── encode_prufer.py            ← Member 4: Prüfer encoding implementation
+├── encode_pruferM4.py            ← Member 4: Prüfer encoding implementation
 ├── test_encode_prufer.py       ← Member 4: test cases for encoding
 │
 ├── generate_trees.py           ← Member 5: tree generation and filtering
