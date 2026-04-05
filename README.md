@@ -14,9 +14,9 @@ The answer is surprisingly clean: exactly **n^(n−2)**. This is Cayley's formul
 |--------|------|--------|----------------|
 | Member 1 | Gavin McNaughton | alashir | Cayley's formula and labeled tree theory write-up |
 | Member 2 | Jang Toor| jang33013-ops | Unlabeled trees and formula comparison |
-| Member 3 | Mayank | Mayank_18 | Prüfer code decoding and tree reconstruction |
+| Member 3 | Mayank | Mayanksci-18 | Prüfer code decoding and tree reconstruction |
 | Member 4 | Kartik Bhanot | kartikb11 | Prüfer code encoding and one-to-one correspondence |
-| Member 5 | Mayank | Mayank_18 | Tree generation and filtering |
+| Member 5 | Mayank | Mayanksci-18 | Tree generation and filtering |
 | Member 6 | Simran Bola | simran12m | Visualization, colours, and final integration |
 
 ---
@@ -32,6 +32,8 @@ The answer is surprisingly clean: exactly **n^(n−2)**. This is Cayley's formul
 │
 ├── comparison.py               ← Member 2: labeled vs unlabeled comparison
 │
+|__ bugs/correct_output.jpg     ← Member 2: output for comparison
+|
 ├── decode_prufer.py            ← Member 3: Prüfer decoding implementation
 ├── test_decode_prufer.py       ← Member 3: test cases for decoding
 │
