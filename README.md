@@ -64,9 +64,7 @@ Since each position in a Prüfer code can be any of the possible n labels, and t
 
 A labeled tree refers to a tree in which each vertex has been labeled to distinguish it from others (1, 2, 3, 4, etc). In this case, trees with the same shape will be counted as different if the labels are arranged differently. To count all of these unique trees, we must apply Cayley’s formula.
 
-In the case of unlabeled trees, structure is the only thing that matters. Two trees are considered the same if a one-to-one correspondence exists between their vertices, assuming adjacency is preserved. This is called graph isomorphism. This makes unlabeled trees much harder to count. There is no simple closed formula equivalent to n^(n−2). The counts must be looked up from sequences like OEIS A000055.
-
-For example, let’s say we have a path with 4 vertices in a line. If vertices are labeled 1, 2, 3, 4 and if we change those labels then it would create different labeled trees but if we ignore the labels then they are all just same unlabeled path. The first few unlabeled tree counts ( n = 1 to 7) are 1, 1, 1, 2 , 3 , 6, 11. These counts are much smaller than for labeled trees, as seen below:
+In the case of unlabeled trees, structure is the only thing that matters. Two trees are considered the same if a one-to-one correspondence exists between their vertices, assuming adjacency is preserved. This is called graph isomorphism. This makes unlabeled trees much harder to count. There is no simple closed formula equivalent to n^(n−2). The counts must be looked up from sequences like OEIS A000055. Below is a table (n = 1 to 7) for both labeled and unlabeled:
 
 | n | Labeled (n^(n−2)) | Unlabeled |
 |---|-------------------|-----------|
@@ -82,11 +80,12 @@ For example, let’s say we have a path with 4 vertices in a line. If vertices a
 
 ##  Dhananjay Sharma — Decoding a Prüfer Sequence
 
-A Prüfer sequence is a list of n−2 numbers, each between 1 and n. Decoding it means reconstructing the original labeled tree — producing an edge list like `[(1, 2), (1, 3), (3, 4)]`.
+Decoding a Prüfer sequence means reconstructing the original labeled tree — producing an edge list like `[(1, 2), (1, 3), (3, 4)]`.
 
-**Why the algorithm works:** every leaf (a vertex with degree 1) in a labeled tree must be the smallest label that does not appear in the remaining Prüfer sequence at any step. This is because a vertex appears in the Prüfer sequence exactly once for each neighbour it has except its last one — so a label missing from the sequence must currently be a leaf. We repeatedly peel off the smallest such leaf, connect it to the next element in the code, and continue until two vertices remain.
+### Why the algorithm works
+Every leaf (a vertex with degree 1) in a labeled tree must be the smallest label that does not appear in the remaining Prüfer sequence at any step. This is because a vertex appears in the Prüfer sequence exactly once for each neighbour it has except its last one — so a label missing from the sequence must currently be a leaf. We repeatedly peel off the smallest such leaf, connect it to the next element in the code, and continue until two vertices remain.
 
-**The algorithm step by step:**
+### The algorithm step by step
 
 1. Compute n = len(code) + 2. Build available = {1, 2, ..., n}
 2. Repeat n−2 times:
@@ -95,7 +94,7 @@ A Prüfer sequence is a list of n−2 numbers, each between 1 and n. Decoding it
    - Remove leaf from available; remove code[0] from the front of the code
 3. Connect the final two labels left in available as the last edge
 
-**Example — decoding `[1, 1, 3]` on 5 vertices:**
+### Example: decoding `[1, 1, 3]` on 5 vertices
 
 | Step | Remaining code | Available | Leaf | Edge added |
 |------|---------------|-----------|------|------------|
@@ -108,7 +107,7 @@ Result: `[(1, 2), (1, 4), (1, 3), (3, 5)]`
 
 At step 2, the leaf is 4 — not 3 — because 3 still appears in the remaining code `[1, 3]`, meaning vertex 3 still has more connections to make.
 
-**Implementation:**
+### Implementation
 
 ```python
 from decode_prufer import decode_prufer
@@ -122,21 +121,20 @@ A second function `decode_prufer_verbose(code)` prints every step of the algorit
 
 ## Kartik Bhanot — Encoding a Tree into a Prüfer Sequence 
 
-Encoding is the reverse direction: given a labeled tree as an edge list, produce its Prüfer sequence. The algorithm mirrors the decoding process — repeatedly find the leaf with the smallest label, record its neighbour, remove it, and repeat until two vertices remain.
+Encoding acts in the reverse direction; given a labeled tree as an edge list, produce its Prüfer sequence. The algorithm mirrors the decoding process: repeatedly finding the leaf with the smallest label, recording its neighbour, removing it, and repeating until two vertices remain.
 
-The important thing Member 4 verified is that **encoding then decoding gives back the original tree**, and **decoding then encoding gives back the original code**. This round-trip check confirms the bijection is working correctly in both directions, which is what proves Cayley's formula — every sequence maps to exactly one tree and vice versa.
+In this part of the project, we proved that encoding -> decoding gives back the original tree. The opposite is true as well, returning the original code. This round-trip check confirms the bijection is working correctly in both directions, proving Cayley's formula; every sequence maps to exactly one tree and vice versa.
 
 ---
 
-## Mayank? — Generating All Labeled Trees
+## Mayank — Generating All Labeled Trees
 
-With decoding working, generating all labeled trees on n vertices is straightforward: produce every possible Prüfer sequence of length n−2 and decode each one. Since labels range from 1 to n and the sequence has length n−2, there are exactly n^(n−2) sequences — one per labeled tree.
+With decoding working, generating all labeled trees on n vertices was straightforward: produce every possible Prüfer sequence of length n−2 then decode each one. `itertools.product` was used to generate the sequences, which would then be decoded using Dhananjay's `decode_prufer()` function, before filtering out all trees including a vertex with degree > 3. In our case, generation stops as soon as 100 trees have been accepted.
 
-Member 5 used `itertools.product` to generate every sequence, decoded each using Member 3's `decode_prufer()`, and filtered out any tree where a vertex has degree greater than 3. Generation stops as soon as 100 trees have been accepted.
+### Why the filtering works
+The maximum degree of a vertex equals the number of times its label appears in the Prüfer sequence plus one (for its last edge). So a vertex with degree 4 or more would appear at least 3 times in the code. Filtering by max degree simply checks this after decoding.
 
-**Why the filtering works:** the maximum degree of a vertex equals the number of times its label appears in the Prüfer sequence plus one (for its last edge). So a vertex with degree 4 or more would appear at least 3 times in the code. Filtering by max degree simply checks this after decoding.
-
-**Results for n=7:**
+### Results for n=7
 
 ```
 Prüfer sequences checked : 191
@@ -144,9 +142,9 @@ Trees accepted           : 100
 Stopped early            : True
 ```
 
-Only 191 of the 823,543 possible sequences needed to be checked before hitting 100 accepted trees.
+Only 191 of the 16,807 possible sequences needed to be checked before hitting 100 accepted trees.
 
-**Usage:**
+### Usage
 
 ```python
 from generate_trees import generate_trees
@@ -157,15 +155,15 @@ accepted, stopped_early, total_checked = generate_trees(7, max_degree=3, stop_at
 
 ## Gavin McNaughton & Simran Bola — Visualization 
 
-Member 6 takes up to 100 accepted trees from Member 5 and draws them together in one combined figure using NetworkX and matplotlib. Numeric vertex labels are replaced with colours so the nodes can stay small enough to fit cleanly. The final output is a single image file in `results/all_trees_n7_maxdeg3.png` showing all filtered trees for n=7 with max degree 3.
+For the visualization, we took 100 accepted trees from `generate_trees.py` and drew them together in one combined figure using NetworkX and matplotlib. Numeric vertex labels were replaced with colours so the nodes could stay small enough to fit cleanly. The final output was a single image file in `results/all_trees_n7_maxdeg3.png` showing all filtered trees for n=7 with max degree 3.
 
 ---
 
 ## Testing and Debugging
 
-### Member 3 — Prüfer Decoding Tests
+### Dhananjay — Prüfer Decoding Tests
 
-Seven test cases were written covering stars, paths, mixed trees, and the minimal n=3 case. Two error-handling tests check that invalid inputs (empty code, out-of-range label) raise `ValueError` correctly.
+Seven test cases were written covering stars, paths, mixed trees, and the minimal n=3 case. Two error-handling tests checked that invalid inputs (empty code, out-of-range label) raised `ValueError` correctly.
 
 The first test run produced 2 failures:
 
@@ -181,7 +179,7 @@ Test  7 [FAIL]  Mixed tree, n=6
 Results: 5 passed, 2 failed out of 7 tests.
 ```
 
-`decode_prufer_verbose()` was used to trace both failing codes step by step. The trace confirmed the algorithm was producing the correct output — the mistake was in the manually written expected values in the test file. The expected edges had been guessed without fully tracing the algorithm.
+`decode_prufer_verbose()` was used to trace both failing codes step by step. The trace confirmed the algorithm was producing the correct output. The mistake was in the manually written expected values in the test file. The expected edges had been guessed without fully tracing the algorithm.
 
 After fixing the two expected values:
 
@@ -194,7 +192,7 @@ Error-handling tests:
 
 **Key takeaway:** The `decode_prufer()` algorithm was correct from the start. Using `decode_prufer_verbose()` to print each step made it straightforward to verify what the correct output should be, rather than guessing expected values manually.
 
-### Member 5 — Generation Tests
+### Mayank — Generation Tests
 
 18 tests were written covering `get_max_degree()` and `generate_trees()` across multiple values of n, including edge cases like n=2, max_degree=1, and stop_at=3. All 18 passed on the first run.
 
