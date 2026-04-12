@@ -6,7 +6,7 @@
 |--------|------|--------|----------------|
 | Member 1 | Gavin McNaughton | alashir | Cayley's formula, Prufer Codes, Tree Visualization |
 | Member 2 | Jang Toor| jang33013-ops | Unlabeled trees and formula comparison |
-| Member 3 | Mayank | Mayanksci-18 | Prüfer code decoding and tree reconstruction |
+| Member 3 | Dhananjay Sharma | Dhananjay-FK | Prüfer code decoding and tree reconstruction |
 | Member 4 | Kartik Bhanot | kartikb11 | Prüfer code encoding and one-to-one correspondence |
 | Member 5 | Mayank | Mayanksci-18 | Tree generation and filtering |
 | Member 6 | Simran Bola | simran12m | Visualization, colours, and final integration |
@@ -80,7 +80,7 @@ For example, let’s say we have a path with 4 vertices in a line. If vertices a
 
 ---
 
-##  Mayank — Decoding a Prüfer Sequence
+##  Dhananjay Sharma — Decoding a Prüfer Sequence
 
 A Prüfer sequence is a list of n−2 numbers, each between 1 and n. Decoding it means reconstructing the original labeled tree — producing an edge list like `[(1, 2), (1, 3), (3, 4)]`.
 
