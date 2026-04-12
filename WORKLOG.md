@@ -4,7 +4,7 @@ This file documents the **process** of building each part of the assignment — 
 
 ---
 
-## Member 2 — comparison.py (Labeled vs Unlabeled Trees)
+## Jang — comparison.py (Labeled vs Unlabeled Trees)
 
 ### What Was Built
 
@@ -16,17 +16,15 @@ The first run produced incorrect output. The unlabeled column was printing text 
 
   ![01](bugs.jpg)
 
-
 ### Final Run — Correct Output
 
 The table now prints correctly with clean integer values in both columns.
 
   ![02](correct_output.jpg)
 
-
 ---
 
-## Member 3 — decode_prufer.py (Prüfer Code Decoding)
+## Dhananjay — decode_prufer.py (Prüfer Code Decoding)
 
 ### What Was Built
 
@@ -93,7 +91,7 @@ The expected values written manually in the test file were wrong. The edge order
 
 ---
 
-## Member 4 — encode_pruferM4.py (Prüfer Code Encoding)
+## Kartik — encode_pruferM4.py (Prüfer Code Encoding)
 
 ### What Was Built
 
@@ -109,7 +107,7 @@ All three confirmed that `encode → decode` gives back the original tree exactl
 
 ---
 
-## Member 5 — generate_trees.py (Tree Generation and Filtering)
+## Mayank — generate_trees.py (Tree Generation and Filtering)
 
 ### What Was Built
 
@@ -135,15 +133,15 @@ n=7 | checked: 191 | accepted: 100 | stopped early: True
   [stopped after 100 accepted trees]
 ```
 
-191 Prüfer sequences were checked out of 823,543 possible before hitting the 100-tree limit.
+191 Prüfer sequences were checked out of 16,807 possible before hitting the 100-tree limit.
 
 ---
 
-## Member 6 — tree_visualization.py (Drawing Trees)
+## Simran & Gavin — tree_visualization.py (Drawing Trees)
 
 ### What Was Built
 
-A script that loads the 100 accepted trees from Member 5 (via a JSON file), builds a NetworkX graph for each, and draws them with 7 distinct colours replacing numeric labels. Each tree is saved as a PNG image.
+A script that loads the 100 accepted trees from Mayank's file (via a JSON file), builds a NetworkX graph for each, and draws them with 7 distinct colours replacing numeric labels. The trees are then combined into one PNG file.
 
 ### Colour Mapping
 
@@ -152,16 +150,18 @@ colors = ['red', 'blue', 'green', 'orange', 'purple', 'cyan', 'magenta']
 node_color_map = {i+1: colors[i] for i in range(7)}
 ```
 
-Vertex 1 is always red, vertex 2 always blue, and so on — so the same vertex keeps its colour across all 100 images, making it easy to compare structures visually.
+Vertex 1 is always red, vertex 2 always blue, and so on such that the same vertex keeps its colour across all 100 images, making it easy to compare structures visually.
 
 ### Final Run Output
 
 ```
-Loaded 100 accepted trees
-Saved 100 tree images successfully!
+Accepted 100 trees saved to accepted_trees.json
+Matplotlib is building the font cache; this may take a moment.
+Loaded 100 trees from accepted_trees.json
+Saved combined image: results\all_trees_n7_maxdeg3.png
 ```
 
-100 PNG files saved (tree_1.png through tree_100.png) in the results/ folder, each showing...
+100 trees successfully combined and stored in the results/ folder
 
 ---
 
