@@ -6,10 +6,6 @@ This file documents the **process** of building each part of the assignment — 
 
 ## Jang — comparison.py (Labeled vs Unlabeled Trees)
 
-### What Was Built
-
-A script that compares labeled tree counts (using Cayley's formula n^(n−2)) against unlabeled tree counts for n = 1 to 7. Unlabeled counts are hardcoded from OEIS A000055.
-
 ### First Run — Bug Found
 
 The first run produced incorrect output. The unlabeled column was printing text like `unlabeled =1` instead of just the number:
@@ -25,10 +21,6 @@ The table now prints correctly with clean integer values in both columns.
 ---
 
 ## Dhananjay — decode_prufer.py (Prüfer Code Decoding)
-
-### What Was Built
-
-A function `decode_prufer(code)` that takes a Prüfer sequence and returns an edge list reconstructing the labeled tree. A second function `decode_prufer_verbose(code)` prints each step of the algorithm for teaching and debugging purposes.
 
 ### Verbose Step-by-Step Output
 
@@ -93,10 +85,6 @@ The expected values written manually in the test file were wrong. The edge order
 
 ## Kartik — encode_pruferM4.py (Prüfer Code Encoding)
 
-### What Was Built
-
-A function `encode_prufer(tree_edges, n)` that converts a labeled tree into its Prüfer sequence. A `decode_prufer(code)` function was also included to verify round-trip correctness. A `sort_edges()` helper normalises edge direction for comparison.
-
 ### Test Run — All Passing First Time
 
 Three trees were tested — two with known expected codes, one without. The screenshot below shows all three passing:
@@ -108,10 +96,6 @@ All three confirmed that `encode → decode` gives back the original tree exactl
 ---
 
 ## Mayank — generate_trees.py (Tree Generation and Filtering)
-
-### What Was Built
-
-A function `generate_trees(n, max_degree, stop_at)` that generates all Prüfer sequences using `itertools.product`, decodes each using Member 3's `decode_prufer()`, filters by maximum vertex degree, and stops at 100 accepted trees.
 
 ### Test Run — All 18 Passing First Time
 
@@ -138,10 +122,6 @@ n=7 | checked: 191 | accepted: 100 | stopped early: True
 ---
 
 ## Simran & Gavin — tree_visualization.py (Drawing Trees)
-
-### What Was Built
-
-A script that loads the 100 accepted trees from Mayank's file (via a JSON file), builds a NetworkX graph for each, and draws them with 7 distinct colours replacing numeric labels. The trees are then combined into one PNG file.
 
 ### Colour Mapping
 
