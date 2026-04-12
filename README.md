@@ -43,12 +43,9 @@ The answer is surprisingly clean: exactly **n^(n−2)**. This is Cayley's formul
 ├── generate_trees.py           ← Member 5: tree generation and filtering
 ├── test_generate_trees.py      ← Member 5: test cases for generation
 │
-├── tree_visualization.py       ← Member 6: drawing and image output
-└── results/                    ← Member 6: saved PNG images of all 100 trees
-    ├── tree_1.png
-    ├── tree_2.png
-    ├── ...
-    └── tree_100.png
+├── tree_visualization.py       ← Member 6: draw one combined image for up to 100 trees
+└── results/                    ← Member 6: combined output image
+    └── all_trees_n7_maxdeg3.png
 ```
 
 ---
@@ -75,7 +72,7 @@ python encode_pruferM4.py       # Member 4: encoding examples
 python test_encode_prufer.py    # Member 4: encoding tests
 python generate_trees.py        # Member 5: generate n=7 trees
 python test_generate_trees.py   # Member 5: 18 tests
-python tree_visualization.py    # Member 6: draw and save tree images to results/
+python tree_visualization.py    # Member 6: draw one combined image in results/
 ```
 
 ---
@@ -187,7 +184,7 @@ accepted, stopped_early, total_checked = generate_trees(7, max_degree=3, stop_at
 
 ### Member 6 — Visualization 
 
-Member 6 takes the 100 accepted trees from Member 5 and draws each one using NetworkX and matplotlib. Numeric vertex labels are replaced with colours so the nodes can stay small enough to fit cleanly in the image. The final output is a set of saved image files showing all filtered trees for n=7 with max degree 3.
+Member 6 takes up to 100 accepted trees from Member 5 and draws them together in one combined figure using NetworkX and matplotlib. Numeric vertex labels are replaced with colours so the nodes can stay small enough to fit cleanly. The final output is a single image file in `results/all_trees_n7_maxdeg3.png` showing all filtered trees for n=7 with max degree 3.
 
 ---
 
