@@ -6,13 +6,13 @@ This file documents the **process** of building each part of the assignment: wha
 
 ## Jang — comparison.py (Labeled vs Unlabeled Trees)
 
-### First Run — Bug Found
+### First Run: Bug Found
 
 The first run produced incorrect output. The unlabeled column was printing text like `unlabeled =1` instead of just the number:
 
   ![01](bugs.jpg)
 
-### Final Run — Correct Output
+### Final Run: Correct Output
 
 The table now prints correctly with clean integer values in both columns.
 
@@ -30,7 +30,7 @@ The table now prints correctly with clean integer values in both columns.
 
 Each step shows the remaining code, available labels, which leaf is picked, and which edge is added. This trace was later used to find the root cause of the test failures below.
 
-### First Test Run — 2 Failures
+### First Test Run: 2 Failures
 
 ```
 ============================================================
@@ -75,7 +75,7 @@ The expected values written manually in the test file were wrong. The edge order
 ([2, 4, 2, 4], [(1, 2), (2, 4), (2, 5), (3, 4), (4, 6)])
 ```
 
-### Final Test Run — All Passing
+### Final Test Run: All Passing
 
 ![Member 3 all tests passing](https://github.com/user-attachments/assets/041d4c3d-1e70-4af0-a07d-5761753ae92c)
 
@@ -85,25 +85,25 @@ The expected values written manually in the test file were wrong. The edge order
 
 ## Kartik — encode_pruferM4.py (Prüfer Code Encoding)
 
-### Test Run — All Passing First Time
+### Test Run reveals all tests passing on first attempt
 
-Three trees were tested — two with known expected codes, one without. The screenshot below shows all three passing:
+Three trees were tested: two with known expected codes, one without. The screenshot below shows all three passing:
 
 ![Member 4 encode round-trip tests](https://github.com/user-attachments/assets/a556fd92-42b4-490a-952b-2b23da8de89b)
 
-All three confirmed that `encode → decode` gives back the original tree exactly. The round-trip verification proves the bijection is working correctly in both directions — every tree maps to a unique code and back.
+All three confirmed that `encode → decode` gives back the original tree exactly. The round-trip verification proves the bijection is working correctly in both directions. Every tree maps to a unique code and back.
 
 ---
 
 ## Mayank — generate_trees.py (Tree Generation and Filtering)
 
-### Test Run — All 18 Passing First Time
+### Test Run: All 18 Passing First Time
 
 ![Member 5 all 18 tests passing](https://github.com/user-attachments/assets/4a459ef8-4916-4bde-b0a4-736db7a451c0)
 
 4 tests for `get_max_degree()` and 14 tests for `generate_trees()` — all 18 passing on the first run. Tests covered n=2 through n=7, edge cases like max_degree=1, stop_at=3, and the n=1 ValueError.
 
-### Main Case Output — n=7
+### Main Case Output: n=7
 
 ```
 n=7 | checked: 191 | accepted: 100 | stopped early: True
@@ -123,14 +123,7 @@ n=7 | checked: 191 | accepted: 100 | stopped early: True
 
 ## Simran & Gavin — tree_visualization.py (Drawing Trees)
 
-### Colour Mapping
-
-```python
-colors = ['red', 'blue', 'green', 'orange', 'purple', 'cyan', 'magenta']
-node_color_map = {i+1: colors[i] for i in range(7)}
-```
-
-Vertex 1 is always red, vertex 2 always blue, and so on such that the same vertex keeps its colour across all 100 images, making it easy to compare structures visually.
+ABC
 
 ### Final Run Output
 
