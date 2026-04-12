@@ -1,6 +1,6 @@
 # COMP359 — Assignment 3: Work Log
 
-This file documents the **process** of building each part of the assignment — what was run, what came out, what went wrong, and how it was fixed. Screenshots are included as direct evidence of the terminal output at each stage.
+This file documents the **process** of building each part of the assignment: what was run, what came out, what went wrong, and how it was fixed. Screenshots are included as direct evidence of the terminal output at each stage.
 
 ---
 
