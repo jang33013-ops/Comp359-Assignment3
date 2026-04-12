@@ -1,52 +1,15 @@
-# COMP359 — Assignment 3: Labeled Trees and Prüfer Sequences
-
-## What This Assignment Is About
-
-A **tree** is a connected graph with no cycles. When we label the vertices with numbers 1 to n, two trees that look the same shape but have different numbers on their vertices count as different trees — these are called **labeled trees**. A natural question is: how many labeled trees exist on n vertices?
-
-The answer is surprisingly clean: exactly **n^(n−2)**. This is Cayley's formula. For example, there are 3^1 = 3 labeled trees on 3 vertices, and 4^2 = 16 on 4 vertices. The formula works because of a beautiful one-to-one correspondence between labeled trees and **Prüfer sequences** — a compact numerical encoding of any tree. Our assignment is built around understanding this correspondence and implementing it in Python.
-
----
+# COMP 359 Assignment 3: Labeled Trees and Prüfer Sequences
 
 ## Group Members
 
 | Member | Name | GitHub | Responsibility |
 |--------|------|--------|----------------|
-| Member 1 | Gavin McNaughton | alashir | Cayley's formula and labeled tree theory write-up, updated tree visualization |
+| Member 1 | Gavin McNaughton | alashir | Cayley's formula, Prufer Codes, Tree Visualization |
 | Member 2 | Jang Toor| jang33013-ops | Unlabeled trees and formula comparison |
 | Member 3 | Mayank | Mayanksci-18 | Prüfer code decoding and tree reconstruction |
 | Member 4 | Kartik Bhanot | kartikb11 | Prüfer code encoding and one-to-one correspondence |
 | Member 5 | Mayank | Mayanksci-18 | Tree generation and filtering |
 | Member 6 | Simran Bola | simran12m | Visualization, colours, and final integration |
-
----
-
-## Repository Structure
-
-```
-.
-├── README.md                   ← this file
-├── PLAN.md                     ← Kanban task board
-├── WORKLOG.md                  ← testing and debugging log with screenshots
-├── Theory Write-up             ← Member 1: Cayley's Formula theory document
-│
-├── comparison.py               ← Member 2: labeled vs unlabeled comparison
-│
-|__ bugs/correct_output.jpg     ← Member 2: output for comparison
-|
-├── decode_prufer.py            ← Member 3: Prüfer decoding implementation
-├── test_decode_prufer.py       ← Member 3: test cases for decoding
-│
-├── encode_pruferM4.py          ← Member 4: Prüfer encoding implementation
-├── test_encode_prufer.py       ← Member 4: test cases for encoding
-│
-├── generate_trees.py           ← Member 5: tree generation and filtering
-├── test_generate_trees.py      ← Member 5: test cases for generation
-│
-├── tree_visualization.py       ← Member 6: draw one combined image for up to 100 trees
-└── results/                    ← Member 6: combined output image
-    └── all_trees_n7_maxdeg3.png
-```
 
 ---
 
@@ -58,56 +21,66 @@ The answer is surprisingly clean: exactly **n^(n−2)**. This is Cayley's formul
 pip install networkx matplotlib
 ```
 
-`itertools` is part of the Python standard library — no install needed.
-
-All files must be in the same directory since `generate_trees.py` imports from `decode_prufer.py`.
-
-### Running Each Part
+### Project files and their purpose
 
 ```bash
-python comparison.py            # Member 2: labeled vs unlabeled table
-python decode_prufer.py         # Member 3: step-by-step decoding examples
-python test_decode_prufer.py    # Member 3: 7 tests + 2 error-handling tests
-python encode_pruferM4.py       # Member 4: encoding examples
-python test_encode_prufer.py    # Member 4: encoding tests
-python generate_trees.py        # Member 5: generate n=7 trees
-python test_generate_trees.py   # Member 5: 18 tests
-python tree_visualization.py    # Member 6: draw one combined image in results/
+python comparison.py            # labeled vs unlabeled table
+python decode_prufer.py         # step-by-step decoding examples
+python test_decode_prufer.py    # 7 tests + 2 error-handling tests
+python encode_pruferM4.py       # encoding examples
+python test_encode_prufer.py    # encoding tests
+python generate_trees.py        # generate n=7 trees
+python test_generate_trees.py   # 18 tests
+python tree_visualization.py    # draw one combined image in results/
 ```
 
+### Generating the final result
+
+```bash
+python generate_trees.py
+python tree_visualization.py
+```
 ---
 
-## What We Did and Why
+## Gavin McNaughton — Cayley's Formula, Connection to Prufer Codes
 
-### Member 1 — Cayley's Formula 
+### Cayley’s Formula
 
-The number of labeled trees on n vertices is n^(n−2). This is proven using the Prüfer sequence bijection: since every labeled tree maps to a unique sequence of length n−2 over labels 1..n, and there are n^(n−2) such sequences, there must be exactly n^(n−2) labeled trees. The bijection works in both directions — every sequence decodes to exactly one tree, and every tree encodes to exactly one sequence — which is what makes it a proof.
+Cayley’s Formula states that the number of labeled trees on n vertices = n^(n-2). Using this formula, then, we can surmise that for any integer n ≥ 1, the total number of distinct labeled trees will be T(n) = n^(n-2). This means that the number of distinct labeled trees grows exponentially with n. For example: at n = 3 there are 3 trees, and at n = 5 there are 125 trees.
 
-Member 1 prepared the full theory write-up (see `Theory Write-up` in the repo), built the example table for n = 1 to 7, and produced a presentation slide connecting the formula to the Prüfer correspondence.
+### Connection to Prüfer Codes
+
+The main idea behind Cayley’s Formula is its connection to Prüfer codes. A Prüfer code is a sequence of length n - 2 that uniquely represents a labeled tree on n vertices. This indicates to us that each entry in the sequence must be an integer between 1 and n, with the sequence itself being composed of exactly 
+n - 2 elements. Interestingly, there is a one-to-one connection between the number of labeled trees on n vertices and the number of Prüfer codes of length 
+n - 2. This means that every labeled tree corresponds to exactly one Prüfer code, and vice versa.
+
+### Why Cayley’s Formula Works
+
+Since each position in a Prüfer code can be any of the possible n labels, and there are n - 2 positions, the total number of possible Prüfer codes is n × n × … × n = n^(n−2). Due to this one-to-one correspondence, this number also correlates to the amount of labeled trees.
 
 ---
 
-### Member 2 — Labeled vs Unlabeled Trees
+## Jang Toor — Labeled vs Unlabeled Trees
 
-Labeled trees are easy to count because labels make trees distinguishable — rotating or reflecting a tree gives a different labeled tree if the vertex numbers change position. Unlabeled trees only care about shape, so trees that are mirror images or rotations of each other count as one.
+A labeled tree refers to a tree in which each vertex has been labeled to distinguish it from others (1, 2, 3, 4, etc). In this case, trees with the same shape will be counted as different if the labels are arranged differently. To count all of these unique trees, we must apply Cayley’s formula.
 
-This makes unlabeled trees much harder to count. There is no simple closed formula equivalent to n^(n−2). The counts must be looked up from sequences like OEIS A000055:
+In the case of unlabeled trees, structure is the only thing that matters. Two trees are considered the same if a one-to-one correspondence exists between their vertices, assuming adjacency is preserved. This is called graph isomorphism. This makes unlabeled trees much harder to count. There is no simple closed formula equivalent to n^(n−2). The counts must be looked up from sequences like OEIS A000055.
+
+For example, let’s say we have a path with 4 vertices in a line. If vertices are labeled 1, 2, 3, 4 and if we change those labels then it would create different labeled trees but if we ignore the labels then they are all just same unlabeled path. The first few unlabeled tree counts ( n = 1 to 7) are 1, 1, 1, 2 , 3 , 6, 11. These counts are much smaller than for labeled trees, as seen below:
 
 | n | Labeled (n^(n−2)) | Unlabeled |
 |---|-------------------|-----------|
-| 1 | 1 | 1 |
-| 2 | 1 | 1 |
-| 3 | 3 | 1 |
-| 4 | 16 | 2 |
-| 5 | 125 | 3 |
-| 6 | 1,296 | 6 |
-| 7 | 823,543 | 11 |
-
-Notice how the labeled count explodes (823,543 for n=7) while the unlabeled count stays small (only 11 distinct shapes). Member 2 implemented `comparison.py` to print this table and explain why the gap exists.
+| 1 | 1                 | 1         |
+| 2 | 1                 | 1         |
+| 3 | 3                 | 1         |
+| 4 | 16                | 2         |
+| 5 | 125               | 3         |
+| 6 | 1,296             | 6         |
+| 7 | 16,807            | 11        |
 
 ---
 
-### Member 3 — Decoding a Prüfer Sequence
+##  Mayank — Decoding a Prüfer Sequence
 
 A Prüfer sequence is a list of n−2 numbers, each between 1 and n. Decoding it means reconstructing the original labeled tree — producing an edge list like `[(1, 2), (1, 3), (3, 4)]`.
 
@@ -147,7 +120,7 @@ A second function `decode_prufer_verbose(code)` prints every step of the algorit
 
 ---
 
-### Member 4 — Encoding a Tree into a Prüfer Sequence 
+## Kartik Bhanot — Encoding a Tree into a Prüfer Sequence 
 
 Encoding is the reverse direction: given a labeled tree as an edge list, produce its Prüfer sequence. The algorithm mirrors the decoding process — repeatedly find the leaf with the smallest label, record its neighbour, remove it, and repeat until two vertices remain.
 
@@ -155,7 +128,7 @@ The important thing Member 4 verified is that **encoding then decoding gives bac
 
 ---
 
-### Member 5 — Generating All Labeled Trees
+## Mayank? — Generating All Labeled Trees
 
 With decoding working, generating all labeled trees on n vertices is straightforward: produce every possible Prüfer sequence of length n−2 and decode each one. Since labels range from 1 to n and the sequence has length n−2, there are exactly n^(n−2) sequences — one per labeled tree.
 
@@ -182,7 +155,7 @@ accepted, stopped_early, total_checked = generate_trees(7, max_degree=3, stop_at
 
 ---
 
-### Member 6 — Visualization 
+## Gavin McNaughton & Simran Bola — Visualization 
 
 Member 6 takes up to 100 accepted trees from Member 5 and draws them together in one combined figure using NetworkX and matplotlib. Numeric vertex labels are replaced with colours so the nodes can stay small enough to fit cleanly. The final output is a single image file in `results/all_trees_n7_maxdeg3.png` showing all filtered trees for n=7 with max degree 3.
 
@@ -227,20 +200,6 @@ Error-handling tests:
 
 ---
 
-## File Dependencies
-
-```
-decode_prufer.py
-        ↑
-generate_trees.py       encode_pruferM4.py
-        ↓
-tree_visualization.py → results/
-```
-
-`generate_trees.py` imports `decode_prufer` from `decode_prufer.py`. Member 6's `tree_visualization.py` takes the accepted trees directly from Member 5 and saves all images to the `results/` folder. All other files are independent.
-
----
-
 ## References
 
 1. Cayley, A. (1889). A theorem on trees. *Quarterly Journal of Mathematics*, 23, 376–378.
@@ -255,4 +214,3 @@ tree_visualization.py → results/
 10. Python Software Foundation. (2024). *itertools — Functions creating iterators for efficient looping*. Python 3 Documentation. https://docs.python.org/3/library/itertools.html
 11. NetworkX Developers. (2024). *NetworkX documentation*. https://networkx.org/documentation/stable/
 12. Anthropic. (2024). *Claude AI* [AI assistant]. https://www.anthropic.com
-
