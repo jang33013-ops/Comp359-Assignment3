@@ -53,7 +53,7 @@ Results: 5 passed, 2 failed out of 7 tests.
 
 ### Investigation
 
-The verbose trace above was used to trace `[1, 1, 3]` step by step. At step 2, the remaining code is `[1, 3]` and the available set is `[1, 3, 4, 5]`. The smallest label **not** in the code is `4` — not `3` — because `3` still appears in the remaining code. The algorithm was producing the correct output all along.
+The verbose trace above was used to trace `[1, 1, 3]` step by step. At step 2, the remaining code is `[1, 3]` and the available set is `[1, 3, 4, 5]`. The smallest label **not** in the code is `4`, not `3`, because `3` still appears in the remaining code. The algorithm was producing the correct output all along.
 
 ### Root Cause
 
@@ -123,7 +123,7 @@ n=7 | checked: 191 | accepted: 100 | stopped early: True
 
 ## Simran & Gavin — tree_visualization.py (Drawing Trees)
 
-ABC
+The result of Simran's work here was a set of 100 labeled trees, saved individually to the results/ folder. I (Gavin) came in and rewrote some code, such that the end result would be the desired single PNG file containing all 100 trees. There weren't really any bugs to report during this process, as much was kept the same. Just had to add some things to make the outputs combine properly, as well as to ensure the output is of high enough quality to actually zoom in and see the individual trees / labels.
 
 ### Final Run Output
 
@@ -135,15 +135,3 @@ Saved combined image: results\all_trees_n7_maxdeg3.png
 ```
 
 100 trees successfully combined and stored in the results/ folder
-
----
-
-## Summary
-
-| Member | File | Tests | First Run | Bugs Found | Final Status |
-|--------|------|-------|-----------|------------|--------------|
-| 2 | comparison.py | manual | failed | 1 — unlabeled column formatting | Fixed ✓ |
-| 3 | decode_prufer.py | 7 + 2 error | 5/7 passed | 2 — wrong expected values in tests | Fixed ✓ |
-| 4 | encode_pruferM4.py | 3 round-trip | all passed | 0 | Passed first run ✓ |
-| 5 | generate_trees.py | 18 | all passed | 0 | Passed first run ✓ |
-| 6 | tree_visualization.py | manual | all passed | 0 | Passed first run ✓ |
