@@ -12,7 +12,7 @@ The answer is surprisingly clean: exactly **n^(n−2)**. This is Cayley's formul
 
 | Member | Name | GitHub | Responsibility |
 |--------|------|--------|----------------|
-| Member 1 | Gavin McNaughton | alashir | Cayley's formula and labeled tree theory write-up |
+| Member 1 | Gavin McNaughton | alashir | Cayley's formula and labeled tree theory write-up, updated tree visualization |
 | Member 2 | Jang Toor| jang33013-ops | Unlabeled trees and formula comparison |
 | Member 3 | Mayank | Mayanksci-18 | Prüfer code decoding and tree reconstruction |
 | Member 4 | Kartik Bhanot | kartikb11 | Prüfer code encoding and one-to-one correspondence |
