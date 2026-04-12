@@ -85,7 +85,7 @@ The expected values written manually in the test file were wrong. The edge order
 
 ## Kartik — encode_pruferM4.py (Prüfer Code Encoding)
 
-### Test Run reveals all tests passing on first attempt
+### Test Run Reveals All Tests Passing on First Attempt
 
 Three trees were tested: two with known expected codes, one without. The screenshot below shows all three passing:
 
@@ -101,7 +101,7 @@ All three confirmed that `encode → decode` gives back the original tree exactl
 
 ![Member 5 all 18 tests passing](https://github.com/user-attachments/assets/4a459ef8-4916-4bde-b0a4-736db7a451c0)
 
-4 tests for `get_max_degree()` and 14 tests for `generate_trees()` — all 18 passing on the first run. Tests covered n=2 through n=7, edge cases like max_degree=1, stop_at=3, and the n=1 ValueError.
+4 tests for `get_max_degree()` and 14 tests for `generate_trees()`, all 18 passing on the first run. Tests covered n=2 through n=7, edge cases like max_degree=1, stop_at=3, and the n=1 ValueError.
 
 ### Main Case Output: n=7
 
