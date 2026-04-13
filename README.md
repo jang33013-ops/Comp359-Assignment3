@@ -62,8 +62,7 @@ Since each position in a Prüfer code can be any of the possible n labels, and t
 
 A labeled tree refers to a tree in which each vertex has been labeled to distinguish it from others (1, 2, 3, 4, etc). In this case, trees with the same shape will be counted as different if the labels are arranged differently. To count all of these unique trees, we must apply Cayley’s formula.
 
-In the case of unlabeled trees, structure is the only thing that matters. Two trees are considered the same if a one-to-one correspondence exists between their vertices, assuming adjacency is preserved. This is called graph isomorphism. This makes unlabeled trees much harder to count. There is no simple closed formula equivalent to n^(n−2). The counts must be looked up from sequences like OEIS A000055. Below is a table 
-(n = 1 to 7) for both labeled and unlabeled:
+In the case of unlabeled trees, structure is the only thing that matters. Two trees are considered the same if a one-to-one correspondence exists between their vertices, assuming adjacency is preserved. This is called graph isomorphism. This makes unlabeled trees much harder to count. There is no simple closed formula equivalent to n^(n−2). The counts must be looked up from sequences like OEIS A000055 (OEIS, 2024). Below is a table (n = 1 to 7) for both labeled and unlabeled:
 
 | n | Labeled (n^(n−2)) | Unlabeled |
 |---|-------------------|-----------|
