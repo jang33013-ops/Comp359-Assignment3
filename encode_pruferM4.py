@@ -1,4 +1,4 @@
-# Member 4; Prufer code Encoding 
+# Author: Kartik; Prufer code Encoding 
 #1. Take a labelled tree a sinout 
 #2. Convert it into its prufer code 
 #3. Check correctness by decoding it back 
