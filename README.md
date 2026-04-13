@@ -234,3 +234,8 @@ here no faliures were encountred unlike the decode_pufer tests.where expected va
 8. Stack Overflow. (2011, February 21). What is the formula to find the different unlabeled trees that can be formed from a given set of nodes? https://stackoverflow.com/questions/5070355/what-is-the-formula-to-find-the-different-unlabeled-trees-that-can-be-formed-fro
 9. CS Dojo. (2020). Introduction to trees (Data structures & algorithms #9) [Video]. YouTube. https://www.youtube.com/watch?v=1-l_UOFi1Xw
 10. macalusod2. (2020). Labeled and unlabeled trees [Video]. YouTube. https://www.youtube.com/watch?v=ZAyvc7m4LpM
+11. Kiran Prajapati Maths & CS. (2020). Prufer code generation for labelled trees [Video]. YouTube.
+https://www.youtube.com/watch?v=ndqIVWV--yw
+12. Sarada Herke. (2014). Graph Theory: 40. Cayley's Formula and Prufer Seqences part 1/2  [Video]. YouTube. https://www.youtube.com/watch?v=Ve447EOW8ww
+13. TheTrevTutor. (2015). Graph theory 12: Cayley’s tree theorem [Video]. YouTube.
+https://www.youtube.com/watch?v=Wi8IvnlMNxs
