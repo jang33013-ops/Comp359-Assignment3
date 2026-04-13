@@ -233,3 +233,8 @@ No failures were encountered unlike the decode_pufer() tests, where expected val
 8. Python Software Foundation. (2024). *itertools — Functions creating iterators for efficient looping*. Python 3 Documentation. https://docs.python.org/3/library/itertools.html
 9. Stack Overflow. (2011). *What is the formula to find the different unlabeled trees that can be formed from a given set of nodes?*. https://stackoverflow.com/questions/5070355/what-is-the-formula-to-find-the-different-unlabeled-trees-that-can-be-formed-fro
 10. WilliamFiset. (2020). *Identifying isomorphic trees | Graph theory* [Video]. YouTube. https://www.youtube.com/watch?v=OCKvEMF0Xac
+
+---
+
+## AI Usage Disclosure
+The original version of our readme and plan was drafted with assistance from both *Claude Sonnet 4.6* and *ChatGPT-5.3 Thinking*. This included how to break down and distribute work among our six group members, how we should structure our readme, as well as assistance with figuring out the key code chokepoints that would keep particular members from progressing in their section. Outside of this, *ChatGPT-5.3 Thinking* was used to assist with reference formatting, specifically how APA would interact with the markdown format. In cases where debugging became increasingly time-consuming, *ChatGPT Codex* was used to point out flaws and suggest improvements. All coding, however, was performed by our six group members.
