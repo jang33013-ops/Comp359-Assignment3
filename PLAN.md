@@ -94,7 +94,3 @@
 | README.md | All | Done |
 | PLAN.md | All | Done |
 | Final review and submission | All | Done |
-
-Member 5 depends on Member 3's `decode_prufer()`.
-Member 6 depends on Member 5's `generate_trees()`.
-All other members can work independently.
