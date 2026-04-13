@@ -1,4 +1,3 @@
-
 #Generates all labeled trees on n vertices using Prüfer sequences,
 
 import itertools
