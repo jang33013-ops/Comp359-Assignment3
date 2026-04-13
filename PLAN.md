@@ -2,7 +2,7 @@
 
 ## Task Board
 
-### Member 1 — Cayley's Formula and Labeled Tree Theory
+### Gavin: Cayley's Formula and Labeled Tree Theory
 
 | To Do | In Progress | Done |
 |-------|-------------|------|
@@ -14,7 +14,7 @@
 
 ---
 
-### Member 2 — Unlabeled Trees and Formula Comparison
+###  Jang: Unlabeled Trees and Formula Comparison
 
 | To Do | In Progress | Done |
 |-------|-------------|------|
@@ -26,7 +26,7 @@
 
 ---
 
-### Member 3 — Prüfer Code Decoding and Tree Reconstruction
+### Dhananjay: Prüfer Code Decoding and Tree Reconstruction
 
 | To Do | In Progress | Done |
 |-------|-------------|------|
@@ -39,7 +39,7 @@
 | |Prepare presentation slide |  |
 ---
 
-### Member 4 — Prüfer Code Encoding and One-to-One Correspondence
+### Kartik: Prüfer Code Encoding and One-to-One Correspondence
 
 | To Do | In Progress | Done |
 |-------|-------------|------|
@@ -51,7 +51,7 @@
 | |Prepare presentation slide |  |
 ---
 
-### Member 5 — Tree Generation and Filtering
+### Mayank: Tree Generation and Filtering
 
 | To Do | In Progress | Done |
 |-------|-------------|------|
@@ -64,7 +64,7 @@
 | |Prepare presentation slide |  |
 ---
 
-### Member 6 — Visualization, Colours, and Final Integration
+### Gavin & Simran: Visualization, Colours, and Final Integration
 
 | To Do | In Progress | Done |
 |-------|-------------|------|
@@ -83,31 +83,17 @@
 | Task | Owner | Status |
 |------|-------|--------|
 | Set up shared GitHub repo | All | Done |
-| Cayley's formula write-up | Member 1 | Done |
-| Unlabeled trees comparison | Member 2 | Done |
-| decode_prufer() implementation | Member 3 | Done |
-| decode_prufer() tests + debugging | Member 3 | Done |
-| encode_prufer() implementation | Member 4 | Done |
-| generate_trees() implementation | Member 5 | Done |
-| generate_trees() tests | Member 5 | Done |
-| Tree visualization images | Member 6 | Done |
+| Cayley's formula write-up | Gavin | Done |
+| Unlabeled trees comparison | Jang | Done |
+| decode_prufer() implementation | Dhananjay | Done |
+| decode_prufer() tests + debugging | Dhananjay | Done |
+| encode_prufer() implementation | Kartik | Done |
+| generate_trees() implementation | Mayank | Done |
+| generate_trees() tests | Mayank | Done |
+| Tree visualization images | Gavin & Simran | Done |
 | README.md | All | Done |
 | PLAN.md | All | Done |
 | Final review and submission | All | Done |
-
----
-
-## Dependencies Between Members
-
-```
-Member 1 (theory)
-    ↓
-Member 2 (unlabeled comparison)     Member 3 (decode)
-                                         ↓
-                    Member 4 (encode) ←→ Member 5 (generate)
-                                         ↓
-                                    Member 6 (visualize)
-```
 
 Member 5 depends on Member 3's `decode_prufer()`.
 Member 6 depends on Member 5's `generate_trees()`.
