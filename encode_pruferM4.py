@@ -25,6 +25,7 @@ def encode_prufer( tree_edges,n):
         adjacency[neighbor].remove(smallest_leaf)    # remove leaf from neighbor adjacency list 
         adjacency [smallest_leaf]=[]                 # removing all the connection form leaf
     return prufer_code
+    
 # starting decoding 
 def decode_prufer(code):
     n=len(code)+2
@@ -49,7 +50,6 @@ def decode_prufer(code):
             remaining.append(i)
     edges.append((remaining[0],remaining[1]))
     return edges
-
 
 def sort_edges(edges):      
     sorted_list=[]
@@ -79,10 +79,3 @@ def test_encode_and_decode (tree_edges,n):
         print("\nResults after Encoding and Decoding matches.")
     else:
         print("\nResults: TREES DO NOT MATCH")
-
-
-
-
-
-
-
