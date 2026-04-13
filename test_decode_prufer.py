@@ -1,6 +1,5 @@
-"""
-Tests for decode_prufer()
-"""
+# tis a test code for the decode_pufer 
+# to check if ecerythinh woorks corecttly 
 
 from decode_prufer import decode_prufer
 
@@ -44,8 +43,8 @@ def run_tests():
     print(f"Results: {passed} passed, {failed} failed out of {len(tests)} tests.")
     print()
 
-    # --- Error-handling tests ---
-    print("Error-handling tests:")
+   
+    print("Error-handling tests:")  #  test if we get an error 
 
     try:
         decode_prufer([])
@@ -54,7 +53,7 @@ def run_tests():
         print(f"  Empty code          — PASS  ({e})")
 
     try:
-        decode_prufer([5, 5])   # n=4, label 5 out of range
+        decode_prufer([5, 5])                                                  # n=4, label 5 out of range
         print("  Out-of-range label  — FAIL (should have raised ValueError)")
     except ValueError as e:
         print(f"  Out-of-range label  — PASS  ({e})")
