@@ -154,7 +154,16 @@ accepted, stopped_early, total_checked = generate_trees(7, max_degree=3, stop_at
 
 ## Gavin McNaughton & Simran Bola — Visualization 
 
-For the visualization, we took 100 accepted trees from `generate_trees.py` and drew them together in one combined figure using NetworkX and matplotlib. Numeric vertex labels were replaced with colours so the nodes could stay small enough to fit cleanly. The final output was a single image file in `results/all_trees_n7_maxdeg3.png` showing all filtered trees for n=7 with max degree 3.
+Numeric vertex labels were replaced with colours so the nodes could stay small enough to fit cleanly in a large image.
+
+```python
+COLORS = ["red", "blue", "green", "orange", "purple", "cyan", "magenta"]
+NODE_COLOR_MAP = {i + 1: COLORS[i] for i in range(N_VERTICES)}
+```
+
+We then loaded all 100 graphs from `generate_trees.py` using `load_graphs()`, combined them with `draw_combined_image`. The NetworkX library was used to create graph objects, add edges, compute each layout, and draw each graph (NetworkX, Reference). MatPlotLib was also used for subplot creation, titles/formatting, layout adjustments, and saving the final image (MatPlotLib, reference).
+
+The final output was a single image file in `results/all_trees_n7_maxdeg3.png` showing all filtered trees for n=7 with max degree 3.
 
 ---
 
