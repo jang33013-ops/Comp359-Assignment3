@@ -12,6 +12,7 @@ tests = [
     ([2],          [(1, 2), (2, 3)],                        "Minimal tree, n=3"),
     ([2, 4, 2, 4], [(1, 2), (2, 4), (2, 5), (3, 4), (4, 6)], "Mixed tree, n=6"),
 ]
+
 def run_tests():
     passed = 0
     failed = 0
