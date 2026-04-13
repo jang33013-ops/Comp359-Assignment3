@@ -1,6 +1,5 @@
 # Compare the number of the labeled trees vs unlabeled trees 
 
-
 def labeled_tree_count(n):
     # we are using Cayley's formula which is n**(n-2)
     if n == 1:
