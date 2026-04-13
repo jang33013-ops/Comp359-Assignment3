@@ -4,7 +4,6 @@
 #Its a sequence of length n-2, the tree has n vertices labelled 1..n.Repeat n-2 times:
 
 def decode_prufer(code):
-   
     if len(code) == 0:
         raise ValueError("Prüfer code must be non-empty .")
     n = len(code) + 2
@@ -13,11 +12,9 @@ def decode_prufer(code):
     for val in code:
         if val < 1 or val > n:
             raise ValueError(f"Label {val} is out of range for a tree on {n} vertices (1..{n}).")
-
     edges = []
     remaining_code = list(code)
     available = set(labels)
-
     for _ in range(n - 2):
         code_set = set(remaining_code)
         leaf = min(v for v in available if v not in code_set)
@@ -26,48 +23,35 @@ def decode_prufer(code):
         edges.append(edge)
         available.remove(leaf)
         remaining_code.pop(0)
-
     u, v = sorted(available)
     edges.append((u, v))
-
     return edges
 
-
-
-
-    #prints each step for teaching purposes.
-
+                                 #prints each step for teaching purposes.
 def decode_prufer_verbose(code):
     if len(code) == 0:
         raise ValueError("Prüfer code must be non-empty.")
-
     n = len(code) + 2
     labels = list(range(1, n + 1))
-
     print(f"Prüfer code : {code}")
     print(f"Vertices    : {labels}  (n = {n})")
     print("-" * 50)
-
     edges = []
     remaining_code = list(code)
     available = set(labels)
-
     for step in range(1, n - 1):
         code_set = set(remaining_code)
         leaf = min(v for v in available if v not in code_set)
         neighbor = remaining_code[0]
         edge = (min(leaf, neighbor), max(leaf, neighbor))
         edges.append(edge)
-
         print(f"Step {step}:")
         print(f"  Remaining code : {remaining_code}")
         print(f"  Available      : {sorted(available)}")
         print(f"  Leaf (smallest not in code): {leaf}")
         print(f"  Connect {leaf} — {neighbor}  →  edge {edge}")
-
         available.remove(leaf)
         remaining_code.pop(0)
-
     u, v = sorted(available)
     final_edge = (u, v)
     edges.append(final_edge)
