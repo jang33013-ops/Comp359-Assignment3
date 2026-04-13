@@ -46,7 +46,7 @@ python tree_visualization.py
 
 ### Cayley’s Formula
 
-Cayley’s Formula states that the number of labeled trees on n vertices = n^(n-2) (Cayley, 1889). Using this formula, then, we can surmise that for any integer n ≥ 1, the total number of distinct labeled trees will be T(n) = n^(n-2). This means that the number of distinct labeled trees grows exponentially with n. For example: at n = 3 there are 3 trees, and at n = 5 there are 125 trees.
+Cayley’s Formula states that the number of labeled trees on n vertices = n^(n-2) (Cayley, 1889). Using this formula, then, we can summarize that for any integer n ≥ 1, the total number of distinct labeled trees will be T(n) = n^(n-2). This means that the number of distinct labeled trees grows exponentially with n. For example: at n = 3 there are 3 trees, and at n = 5 there are 125 trees.
 
 ### Connection to Prüfer Codes
 
@@ -218,7 +218,7 @@ ________________________________________________________
 generate_trees()    14       |      14         |   0
 ________________________________________________________
 
-here no faliures were encountred unlike the decode_pufer tests.where expected values had to be traced manually. whereas, generste_trees could be verified using the cayley's formula.which confirm that n=4 must produce excatly 16 trees.
+here no faliures were encountred unlike the decode_pufer tests.where expected values had to be traced manually. whereas, generate_trees could be verified using the cayley's formula.which confirm that n=4 must produce exactly 16 trees.
 
 ---
 
@@ -230,3 +230,8 @@ here no faliures were encountred unlike the decode_pufer tests.where expected va
 4. Python Software Foundation. (2024). *itertools — Functions creating iterators for efficient looping*. Python 3 Documentation. https://docs.python.org/3/library/itertools.html
 5. NetworkX Development Team. (n.d.). *Tutorial*. https://networkx.org/documentation/stable/tutorial.html
 6. Matplotlib Development Team. (n.d.). *Tutorials*. https://matplotlib.org/stable/tutorials/index.html
+7. WilliamFiset. (n.d.). Identifying isomorphic trees | Graph theory [Video]. YouTube. https://www.youtube.com/watch?v=OCKvEMF0Xac
+8. Stack Overflow. (2011, February 21). What is the formula to find the different unlabeled trees that can be formed from a given set of nodes? https://stackoverflow.com/questions/5070355/what-is-the-formula-to-find-the-different-unlabeled-trees-that-can-be-formed-fro
+9. OEIS Foundation Inc. (n.d.). A000055: Number of trees with n unlabeled nodes. On-Line Encyclopedia of Integer Sequences. https://oeis.org/A000055
+10. CS Dojo. (n.d.). Introduction to trees (Data structures & algorithms #9) [Video]. YouTube. https://www.youtube.com/watch?v=1-l_UOFi1Xw
+11. macalusod2. (n.d.). Labeled and unlabeled trees [Video]. YouTube. https://www.youtube.com/watch?v=ZAyvc7m4LpM
