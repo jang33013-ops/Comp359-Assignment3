@@ -1,5 +1,5 @@
-
 from generate_trees import generate_trees, get_max_degree
+
 def test_max_degree():                                        # Tests for get_max_degree()
     print("=" * 60)
     print("TESTING get_max_degree()")
@@ -74,4 +74,3 @@ def test_generate_trees():                                        # Tests for ge
         passed += 1
 
     print(f"\n  {passed} passed, {failed} failed\n")
-
