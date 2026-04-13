@@ -1,22 +1,12 @@
-"""
-Prüfer Code Decoding — Member 3
-Reconstructs a labeled tree from a Prüfer sequence.
 
-Algorithm:
-  Given a Prüfer sequence of length n-2, the tree has n vertices labelled 1..n.
-  Repeat n-2 times:
-    1. Find the smallest label NOT in the remaining code (this is a leaf).
-    2. Connect that leaf to the first element of the remaining code.
-    3. Remove the leaf from the available set and remove the first element of the code.
-  The last two remaining labels form the final edge.
-"""
 
+
+#Its a sequence of length n-2, the tree has n vertices labelled 1..n.Repeat n-2 times:
 
 def decode_prufer(code):
    
     if len(code) == 0:
-        raise ValueError("Prüfer code must be non-empty (encodes a tree on at least 3 vertices).")
-
+        raise ValueError("Prüfer code must be non-empty .")
     n = len(code) + 2
     labels = list(range(1, n + 1))
 
@@ -43,10 +33,11 @@ def decode_prufer(code):
     return edges
 
 
+
+
+    #prints each step for teaching purposes.
+
 def decode_prufer_verbose(code):
-    """
-    Same algorithm as decode_prufer(), but prints each step for teaching purposes.
-    """
     if len(code) == 0:
         raise ValueError("Prüfer code must be non-empty.")
 
