@@ -46,7 +46,7 @@ python tree_visualization.py
 
 ### Cayley’s Formula
 
-Cayley’s Formula states that the number of labeled trees on n vertices = n^(n-2) (Cayley, 1889). Using this formula, then, we can summarize that for any integer n ≥ 1, the total number of distinct labeled trees will be T(n) = n^(n-2). This means that the number of distinct labeled trees grows exponentially with n. For example: at n = 3 there are 3 trees, and at n = 5 there are 125 trees.
+Cayley’s Formula states that the number of labeled trees on n vertices = n^(n-2) (Cayley, 1889). Using this formula, for any integer n ≥ 1, the total number of distinct labeled trees will be T(n) = n^(n-2). This means that the number of distinct labeled trees grows exponentially with n. For example: at n = 3 there are 3 trees, and at n = 5 there are 125 trees.
 
 ### Connection to Prüfer Codes
 
@@ -62,7 +62,7 @@ Since each position in a Prüfer code can be any of the possible n labels, and t
 
 A labeled tree refers to a tree in which each vertex has been labeled to distinguish it from others (1, 2, 3, 4, etc). In this case, trees with the same shape will be counted as different if the labels are arranged differently. To count all of these unique trees, we must apply Cayley’s formula.
 
-In the case of unlabeled trees, structure is the only thing that matters. Two trees are considered the same if a one-to-one correspondence exists between their vertices, assuming adjacency is preserved. This is called graph isomorphism. This makes unlabeled trees much harder to count. There is no simple closed formula equivalent to n^(n−2). The counts must be looked up from sequences like OEIS A000055 (OEIS, 2024). Below is a table (n = 1 to 7) for both labeled and unlabeled:
+In the case of unlabeled trees, structure is the only thing that matters. Two trees are considered the same if a one-to-one correspondence exists between their vertices, assuming adjacency is preserved. This is called graph isomorphism (WilliamFiset, 2020). This makes unlabeled trees much harder to count. There is no simple closed formula equivalent to n^(n−2) (Stack Overflow, 2011). The counts must be looked up from generating functions such as OEIS A000055 (OEIS, 2024). Below is a table (n = 1 to 7) for both labeled and unlabeled:
 
 | n | Labeled (n^(n−2)) | Unlabeled |
 |---|-------------------|-----------|
@@ -81,7 +81,7 @@ In the case of unlabeled trees, structure is the only thing that matters. Two tr
 Decoding a Prüfer sequence means reconstructing the original labeled tree, producing an edge list like `[(1, 2), (1, 3), (3, 4)]`.
 
 ### Why the algorithm works
-Every leaf (a vertex with degree 1) in a labeled tree must be the smallest label that does not appear in the remaining Prüfer sequence at any step. This is because a vertex appears in the Prüfer sequence exactly once for each neighbour it has except its last one — so a label missing from the sequence must currently be a leaf. We repeatedly peel off the smallest such leaf, connect it to the next element in the code, and continue until two vertices remain.
+Every leaf (a vertex with degree 1) in a labeled tree must be the smallest label that does not appear in the remaining Prüfer sequence at any step. This is because a vertex appears in the Prüfer sequence exactly once for each neighbour it has except its last one — so a label missing from the sequence must currently be a leaf. We repeatedly peel off the smallest such leaf, connect it to the next element in the code, and continue until two vertices remain (Kubenoz, 2021).
 
 ### The algorithm step by step
 
@@ -119,7 +119,7 @@ A second function `decode_prufer_verbose(code)` prints every step of the algorit
 
 ## Kartik Bhanot — Encoding a Tree into a Prüfer Sequence 
 
-Encoding acts in the reverse direction; given a labeled tree as an edge list, produce its Prüfer sequence. The algorithm mirrors the decoding process: repeatedly finding the leaf with the smallest label, recording its neighbour, removing it, and repeating until two vertices remain.
+Encoding acts in the reverse direction; given a labeled tree as an edge list, produce its Prüfer sequence (Kiran Prajapati Maths & CS, 2020). The algorithm mirrors the decoding process: repeatedly finding the leaf with the smallest label, recording its neighbour, removing it, and repeating until two vertices remain.
 
 In this part of the project, we proved that encoding -> decoding gives back the original tree. The opposite is true as well, returning the original code. This round-trip check confirms the bijection is working correctly in both directions, proving Cayley's formula; every sequence maps to exactly one tree and vice versa.
 
@@ -127,12 +127,11 @@ In this part of the project, we proved that encoding -> decoding gives back the 
 
 ## Mayank — Generating All Labeled Trees
 
-With decoding working, generating all labeled trees on n vertices was straightforward: produce every possible Prüfer sequence of length n−2 then decode each one and keep only those trees whose maximum vertex degree does not exceed a given threshold. like For n=7,gives 7^5 = 16,807 possible sequences (Cayley, 1889)
-. `itertools.product` was used to generate the sequences, which would then be decoded using Dhananjay's `decode_prufer()` function (Prüfer, 1918), before filtering out all trees including a vertex with degree > 3. In our case, generation stops as soon as 100 trees have been accepted.
+With decoding working, generating all labeled trees on n vertices was straightforward: produce every possible Prüfer sequence of length n−2 then decode each one and keep only those trees whose maximum vertex degree does not exceed a given threshold. like For n=7,gives 7^5 = 16,807 possible sequences (Cayley, 1889). `itertools.product` was used to generate the sequences (Python Software Foundation, 2024), which would then be decoded using Dhananjay's `decode_prufer()` function, before filtering out all trees including a vertex with degree > 3. In our case, generation stops as soon as 100 trees have been accepted.
 
 
 ### Why the filtering works
-The maximum degree of a vertex equals the number of times its label appears in the Prüfer sequence plus one (for its last edge)(Prüfer, 1918). So a vertex with degree 4 or more would appear at least 3 times in the code.get_max_degree() builds a degree dictionary from the edge list and returns the maximum. this is called after decoding, so it works on any tree regardless of how it was generated. thats why Filtering by max degree simply checks this after decoding.
+The maximum degree of a vertex equals the number of times its label appears in the Prüfer sequence plus one (for its last edge) (Prüfer, 1918). So a vertex with degree 4 or more would appear at least 3 times in the code.get_max_degree() builds a degree dictionary from the edge list and returns the maximum. this is called after decoding, so it works on any tree regardless of how it was generated. thats why Filtering by max degree simply checks this after decoding.
 
 
 
@@ -208,7 +207,7 @@ Error-handling tests:
 
 ### Mayank — Generation Tests
 
-18 tests were written covering `get_max_degree()` and `generate_trees()` across multiple values of n, including edge cases like n=2, max_degree=1, and stop_at=3. All 18 passed on the first run.\
+18 tests were written covering `get_max_degree()` and `generate_trees()` across multiple values of n, including edge cases like n=2, max_degree=1, and stop_at=3. All 18 passed on the first run.
 
 
 Test Group    |     Cases    |    Passed       |   Failed
@@ -218,24 +217,19 @@ ________________________________________________________
 generate_trees()    14       |      14         |   0
 ________________________________________________________
 
-here no faliures were encountred unlike the decode_pufer tests.where expected values had to be traced manually. whereas, generate_trees could be verified using the cayley's formula.which confirm that n=4 must produce exactly 16 trees.
+No failures were encountered unlike the decode_pufer() tests, where expected values had to be traced manually. generate_trees() could be verified with Cayley's Formula, confirmimg that n=4 must produce exactly 16 trees.
 
 ---
 
 ## References
 
 1. Cayley, A. (1889). *A theorem on trees*. Quarterly Journal of Mathematics, 23, 376–378.
-2. Prüfer, H. (1918). *Neuer Beweis eines Satzes über Permutationen*. Archiv der Mathematik und Physik, 27, 142–144.
-3. OEIS Foundation. (2024). *A000055 — Number of trees with n unlabeled nodes*. The On-Line Encyclopedia of Integer Sequences. https://oeis.org/A000055
-4. Python Software Foundation. (2024). *itertools — Functions creating iterators for efficient looping*. Python 3 Documentation. https://docs.python.org/3/library/itertools.html
+2. Kiran Prajapati Maths & CS. (2020). *Prufer code generation for labelled trees* [Video]. YouTube. https://www.youtube.com/watch?v=ndqIVWV--yw
+3. Kubenoz. (2021). *Prufer Sequences - Decoding*. [Video]. Youtube. https://www.youtube.com/watch?v=7s44l7gWEVk
+4. Matplotlib Development Team. (n.d.). *Tutorials*. https://matplotlib.org/stable/tutorials/index.html
 5. NetworkX Development Team. (n.d.). *Tutorial*. https://networkx.org/documentation/stable/tutorial.html
-6. Matplotlib Development Team. (n.d.). *Tutorials*. https://matplotlib.org/stable/tutorials/index.html
-7. WilliamFiset. (2020). Identifying isomorphic trees | Graph theory [Video]. YouTube. https://www.youtube.com/watch?v=OCKvEMF0Xac
-8. Stack Overflow. (2011, February 21). What is the formula to find the different unlabeled trees that can be formed from a given set of nodes? https://stackoverflow.com/questions/5070355/what-is-the-formula-to-find-the-different-unlabeled-trees-that-can-be-formed-fro
-9. CS Dojo. (2020). Introduction to trees (Data structures & algorithms #9) [Video]. YouTube. https://www.youtube.com/watch?v=1-l_UOFi1Xw
-10. macalusod2. (2020). Labeled and unlabeled trees [Video]. YouTube. https://www.youtube.com/watch?v=ZAyvc7m4LpM
-11. Kiran Prajapati Maths & CS. (2020). Prufer code generation for labelled trees [Video]. YouTube.
-https://www.youtube.com/watch?v=ndqIVWV--yw
-12. Sarada Herke. (2014). Graph Theory: 40. Cayley's Formula and Prufer Seqences part 1/2  [Video]. YouTube. https://www.youtube.com/watch?v=Ve447EOW8ww
-13. TheTrevTutor. (2015). Graph theory 12: Cayley’s tree theorem [Video]. YouTube.
-https://www.youtube.com/watch?v=Wi8IvnlMNxs
+6. OEIS Foundation. (2024). *A000055 — Number of trees with n unlabeled nodes*. The On-Line Encyclopedia of Integer Sequences. https://oeis.org/A000055
+7. Prüfer, H. (1918). *Neuer Beweis eines Satzes über Permutationen*. Archiv der Mathematik und Physik, 27, 142–144.
+8. Python Software Foundation. (2024). *itertools — Functions creating iterators for efficient looping*. Python 3 Documentation. https://docs.python.org/3/library/itertools.html
+9. Stack Overflow. (2011). *What is the formula to find the different unlabeled trees that can be formed from a given set of nodes?*. https://stackoverflow.com/questions/5070355/what-is-the-formula-to-find-the-different-unlabeled-trees-that-can-be-formed-fro
+10. WilliamFiset. (2020). *Identifying isomorphic trees | Graph theory* [Video]. YouTube. https://www.youtube.com/watch?v=OCKvEMF0Xac
