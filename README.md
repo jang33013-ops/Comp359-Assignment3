@@ -81,7 +81,7 @@ In the case of unlabeled trees, structure is the only thing that matters. Two tr
 Decoding a Prüfer sequence means reconstructing the original labeled tree, producing an edge list like `[(1, 2), (1, 3), (3, 4)]`.
 
 ### Why the algorithm works
-Every leaf (a vertex with degree 1) in a labeled tree must be the smallest label that does not appear in the remaining Prüfer sequence at any step. This is because a vertex appears in the Prüfer sequence exactly once for each neighbour it has except its last one — so a label missing from the sequence must currently be a leaf. We repeatedly peel off the smallest such leaf, connect it to the next element in the code, and continue until two vertices remain (Kubenoz, 2021).
+Every leaf (a vertex with degree 1) in a labeled tree must be the smallest label that does not appear in the remaining Prüfer sequence at any step. This is because a vertex appears in the Prüfer sequence exactly once for each neighbour it has except its last one; therefore, a label missing from the sequence must currently be a leaf. We repeatedly peel off the smallest such leaf, connect it to the next element in the code, and continue until two vertices remain (Kubenoz, 2021).
 
 ### The algorithm step by step
 
@@ -103,7 +103,7 @@ Every leaf (a vertex with degree 1) in a labeled tree must be the smallest label
 
 Result: `[(1, 2), (1, 4), (1, 3), (3, 5)]`
 
-At step 2, the leaf is 4 — not 3 — because 3 still appears in the remaining code `[1, 3]`, meaning vertex 3 still has more connections to make.
+At step 2, the leaf is 4, not 3, because 3 still appears in the remaining code `[1, 3]`, meaning vertex 3 still has more connections to make.
 
 ### Implementation
 
