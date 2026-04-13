@@ -2,9 +2,6 @@
 # to check if ecerythinh woorks corecttly 
 
 from decode_prufer import decode_prufer
-
-
-
 tests = [
     # (code, expected_edges, description)
     ([1, 1],       [(1, 2), (1, 3), (1, 4)],               "Star centred at 1, n=4"),
@@ -15,16 +12,12 @@ tests = [
     ([2],          [(1, 2), (2, 3)],                        "Minimal tree, n=3"),
     ([2, 4, 2, 4], [(1, 2), (2, 4), (2, 5), (3, 4), (4, 6)], "Mixed tree, n=6"),
 ]
-
-
 def run_tests():
     passed = 0
     failed = 0
-
     print("=" * 60)
     print("RUNNING TESTS  —  decode_prufer()")
     print("=" * 60)
-
     for i, (code, expected, desc) in enumerate(tests, 1):
         result = decode_prufer(code)
         ok = sorted(result) == sorted(expected)
@@ -38,12 +31,9 @@ def run_tests():
         if not ok:
             print(f"         Expected : {sorted(expected)}")
             print(f"         Got      : {sorted(result)}")
-
     print("-" * 60)
     print(f"Results: {passed} passed, {failed} failed out of {len(tests)} tests.")
     print()
-
-   
     print("Error-handling tests:")  #  test if we get an error 
 
     try:
@@ -57,6 +47,7 @@ def run_tests():
         print("  Out-of-range label  — FAIL (should have raised ValueError)")
     except ValueError as e:
         print(f"  Out-of-range label  — PASS  ({e})")
+        
 
 
 if __name__ == "__main__":
