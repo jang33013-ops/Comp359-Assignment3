@@ -46,13 +46,11 @@ python tree_visualization.py
 
 ### Cayley’s Formula
 
-Cayley’s Formula states that the number of labeled trees on n vertices = n^(n-2). Using this formula, then, we can surmise that for any integer n ≥ 1, the total number of distinct labeled trees will be T(n) = n^(n-2). This means that the number of distinct labeled trees grows exponentially with n. For example: at n = 3 there are 3 trees, and at n = 5 there are 125 trees.
+Cayley’s Formula states that the number of labeled trees on n vertices = n^(n-2) (Cayley, 1889). Using this formula, then, we can surmise that for any integer n ≥ 1, the total number of distinct labeled trees will be T(n) = n^(n-2). This means that the number of distinct labeled trees grows exponentially with n. For example: at n = 3 there are 3 trees, and at n = 5 there are 125 trees.
 
 ### Connection to Prüfer Codes
 
-The main idea behind Cayley’s Formula is its connection to Prüfer codes. A Prüfer code is a sequence of length n - 2 that uniquely represents a labeled tree on n vertices. This indicates to us that each entry in the sequence must be an integer between 1 and n, with the sequence itself being composed of exactly 
-n - 2 elements. Interestingly, there is a one-to-one connection between the number of labeled trees on n vertices and the number of Prüfer codes of length 
-n - 2. This means that every labeled tree corresponds to exactly one Prüfer code, and vice versa.
+The main idea behind Cayley’s Formula is its connection to Prüfer codes (Prüfer, 1918). A Prüfer code is a sequence of length n - 2 that uniquely represents a labeled tree on n vertices. This indicates to us that each entry in the sequence must be an integer between 1 and n, with the sequence itself being composed of exactly n - 2 elements. Interestingly, there is a one-to-one connection between the number of labeled trees on n vertices and the number of Prüfer codes of length n - 2. This means that every labeled tree corresponds to exactly one Prüfer code, and vice versa.
 
 ### Why Cayley’s Formula Works
 
@@ -205,11 +203,6 @@ Error-handling tests:
 2. Prüfer, H. (1918). Neuer Beweis eines Satzes über Permutationen. *Archiv der Mathematik und Physik*, 27, 142–144.
 3. OEIS Foundation. (2024). A000055 — Number of trees with n unlabeled nodes. *The On-Line Encyclopedia of Integer Sequences*. https://oeis.org/A000055
 4. Balázs, E. (2019). *MAT344 Lecture 13: Prüfer sequences and Cayley's formula*. University of Toronto. https://www.math.toronto.edu/balazse/2019_Summer_MAT344/Lec_13.pdf
-5. UBC Mathematics. *Prüfer sequences and Cayley's theorem* [Course handout]. University of British Columbia.
-6. Borcherds, R. (2021). *Graph Theory 12: Cayley's Tree Theorem* [Video]. YouTube. https://www.youtube.com/watch?v=Wi8IvnlMNxs
-7. TheTrevTutor. (2015). *Graph theory 12: Cayley's tree theorem* [Video]. YouTube. https://www.youtube.com/watch?v=Wi8IvnlMNxs
-8. Last Moment Tuitions. (2020). *Prufer code generation for labelled trees* [Video]. YouTube. https://www.youtube.com/watch?v=ndqIVWV--yw
-9. Dr. Trefor Bazett. (2020). *Cayley's formula and Prüfer sequences* [Video]. YouTube. https://www.youtube.com/watch?v=Ve447EOW8ww
 10. Python Software Foundation. (2024). *itertools — Functions creating iterators for efficient looping*. Python 3 Documentation. https://docs.python.org/3/library/itertools.html
 11. NetworkX Developers. (2024). *NetworkX documentation*. https://networkx.org/documentation/stable/
 12. Anthropic. (2024). *Claude AI* [AI assistant]. https://www.anthropic.com
