@@ -230,8 +230,7 @@ here no faliures were encountred unlike the decode_pufer tests.where expected va
 4. Python Software Foundation. (2024). *itertools — Functions creating iterators for efficient looping*. Python 3 Documentation. https://docs.python.org/3/library/itertools.html
 5. NetworkX Development Team. (n.d.). *Tutorial*. https://networkx.org/documentation/stable/tutorial.html
 6. Matplotlib Development Team. (n.d.). *Tutorials*. https://matplotlib.org/stable/tutorials/index.html
-7. WilliamFiset. (n.d.). Identifying isomorphic trees | Graph theory [Video]. YouTube. https://www.youtube.com/watch?v=OCKvEMF0Xac
+7. WilliamFiset. (2020). Identifying isomorphic trees | Graph theory [Video]. YouTube. https://www.youtube.com/watch?v=OCKvEMF0Xac
 8. Stack Overflow. (2011, February 21). What is the formula to find the different unlabeled trees that can be formed from a given set of nodes? https://stackoverflow.com/questions/5070355/what-is-the-formula-to-find-the-different-unlabeled-trees-that-can-be-formed-fro
-9. OEIS Foundation Inc. (n.d.). A000055: Number of trees with n unlabeled nodes. On-Line Encyclopedia of Integer Sequences. https://oeis.org/A000055
-10. CS Dojo. (n.d.). Introduction to trees (Data structures & algorithms #9) [Video]. YouTube. https://www.youtube.com/watch?v=1-l_UOFi1Xw
-11. macalusod2. (n.d.). Labeled and unlabeled trees [Video]. YouTube. https://www.youtube.com/watch?v=ZAyvc7m4LpM
+9. CS Dojo. (2020). Introduction to trees (Data structures & algorithms #9) [Video]. YouTube. https://www.youtube.com/watch?v=1-l_UOFi1Xw
+10. macalusod2. (2020). Labeled and unlabeled trees [Video]. YouTube. https://www.youtube.com/watch?v=ZAyvc7m4LpM
