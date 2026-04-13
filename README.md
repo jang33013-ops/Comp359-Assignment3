@@ -161,7 +161,7 @@ COLORS = ["red", "blue", "green", "orange", "purple", "cyan", "magenta"]
 NODE_COLOR_MAP = {i + 1: COLORS[i] for i in range(N_VERTICES)}
 ```
 
-We then loaded all 100 graphs from `generate_trees.py` using `load_graphs()`, and combined them with `draw_combined_image()`. The two main libraries we used here were NetworkX and MatPlotLib. NetworkX was used to create graph objects, add edges, compute each layout, and draw each graph (NetworkX, Reference). MatPlotLib was used for subplot creation, titles/formatting, layout adjustments, and saving the final image (MatPlotLib, reference). The final output was a single image file, shown below:
+We then loaded all 100 graphs from `generate_trees.py` using `load_graphs()`, and combined them with `draw_combined_image()`. The two main libraries we used here were NetworkX and MatPlotLib. NetworkX was used to create graph objects, add edges, compute each layout, and draw each graph (NetworkX Development Team, n.d.). Matplotlib was used for subplot creation, titles/formatting, layout adjustments, and saving the final image (Matplotlib Development Team, n.d.). The final output was a single image file, shown below:
 
 ![Final Result](results/all_trees_n7_maxdeg3.png)
 ---
@@ -207,10 +207,10 @@ Error-handling tests:
 
 ## References
 
-1. Cayley, A. (1889). A theorem on trees. *Quarterly Journal of Mathematics*, 23, 376–378.
-2. Prüfer, H. (1918). Neuer Beweis eines Satzes über Permutationen. *Archiv der Mathematik und Physik*, 27, 142–144.
-3. OEIS Foundation. (2024). A000055 — Number of trees with n unlabeled nodes. *The On-Line Encyclopedia of Integer Sequences*. https://oeis.org/A000055
-4. Balázs, E. (2019). *MAT344 Lecture 13: Prüfer sequences and Cayley's formula*. University of Toronto. https://www.math.toronto.edu/balazse/2019_Summer_MAT344/Lec_13.pdf
-10. Python Software Foundation. (2024). *itertools — Functions creating iterators for efficient looping*. Python 3 Documentation. https://docs.python.org/3/library/itertools.html
-11. NetworkX Developers. (2024). *NetworkX documentation*. https://networkx.org/documentation/stable/
-12. Anthropic. (2024). *Claude AI* [AI assistant]. https://www.anthropic.com
+1. Cayley, A. (1889). *A theorem on trees*. Quarterly Journal of Mathematics, 23, 376–378.
+2. Prüfer, H. (1918). *Neuer Beweis eines Satzes über Permutationen*. Archiv der Mathematik und Physik, 27, 142–144.
+3. OEIS Foundation. (2024). *A000055 — Number of trees with n unlabeled nodes*. The On-Line Encyclopedia of Integer Sequences. https://oeis.org/A000055
+4. Python Software Foundation. (2024). *itertools — Functions creating iterators for efficient looping*. Python 3 Documentation. https://docs.python.org/3/library/itertools.html
+5. NetworkX Development Team. (n.d.). *Tutorial*. https://networkx.org/documentation/stable/tutorial.html
+6. Matplotlib Development Team. (n.d.). *Tutorials*. https://matplotlib.org/stable/tutorials/index.html
+7. Anthropic. (2024). *Claude AI* [AI assistant]. https://www.anthropic.com
