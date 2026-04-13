@@ -1,6 +1,3 @@
-
-
-
 #Its a sequence of length n-2, the tree has n vertices labelled 1..n.Repeat n-2 times:
 
 def decode_prufer(code):
