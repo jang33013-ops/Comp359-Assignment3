@@ -1,5 +1,5 @@
-# tis a test code for the decode_pufer 
-# to check if ecerythinh woorks corecttly 
+# This is test code for decode_pufer 
+# Ensures everything is working correctly
 
 from decode_prufer import decode_prufer
 tests = [
