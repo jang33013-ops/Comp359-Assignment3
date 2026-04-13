@@ -47,8 +47,3 @@ def run_tests():
         print("  Out-of-range label  — FAIL (should have raised ValueError)")
     except ValueError as e:
         print(f"  Out-of-range label  — PASS  ({e})")
-        
-
-
-if __name__ == "__main__":
-    run_tests()
