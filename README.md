@@ -127,10 +127,14 @@ In this part of the project, we proved that encoding -> decoding gives back the 
 
 ## Mayank — Generating All Labeled Trees
 
-With decoding working, generating all labeled trees on n vertices was straightforward: produce every possible Prüfer sequence of length n−2 then decode each one. `itertools.product` was used to generate the sequences, which would then be decoded using Dhananjay's `decode_prufer()` function, before filtering out all trees including a vertex with degree > 3. In our case, generation stops as soon as 100 trees have been accepted.
+With decoding working, generating all labeled trees on n vertices was straightforward: produce every possible Prüfer sequence of length n−2 then decode each one and keep only those trees whose maximum vertex degree does not exceed a given threshold. like For n=7,gives 7^5 = 16,807 possible sequences (Cayley, 1889)
+. `itertools.product` was used to generate the sequences, which would then be decoded using Dhananjay's `decode_prufer()` function (Prüfer, 1918), before filtering out all trees including a vertex with degree > 3. In our case, generation stops as soon as 100 trees have been accepted.
+
 
 ### Why the filtering works
-The maximum degree of a vertex equals the number of times its label appears in the Prüfer sequence plus one (for its last edge). So a vertex with degree 4 or more would appear at least 3 times in the code. Filtering by max degree simply checks this after decoding.
+The maximum degree of a vertex equals the number of times its label appears in the Prüfer sequence plus one (for its last edge)(Prüfer, 1918). So a vertex with degree 4 or more would appear at least 3 times in the code.get_max_degree() builds a degree dictionary from the edge list and returns the maximum. this is called after decoding, so it works on any tree regardless of how it was generated. thats why Filtering by max degree simply checks this after decoding.
+
+
 
 ### Results for n=7
 
@@ -140,13 +144,17 @@ Trees accepted           : 100
 Stopped early            : True
 ```
 
-Only 191 of the 16,807 possible sequences needed to be checked before hitting 100 accepted trees.
+Only 191 of the 16,807 possible sequences needed to be checked before hitting 100 accepted trees. since,Sequences are enumerated in lexicographic order, and low-index sequences tend to repeat small labels, which creates star-like structures — but since n=7 stars have degree 6, those are filtered. The first 100 accepted trees are found within the first 191 sequences because balanced, low-degree trees appear fairly early in the enumeration.
+
+Sample accepted tree: [(1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 7)]
+
 
 ### Usage
 
 ```python
 from generate_trees import generate_trees
 accepted, stopped_early, total_checked = generate_trees(7, max_degree=3, stop_at=100)
+print(f"Accepted: {len(accepted)}, Checked: {total_checked}, Stopped early: {stopped_early}")
 ```
 
 ---
@@ -200,7 +208,17 @@ Error-handling tests:
 
 ### Mayank — Generation Tests
 
-18 tests were written covering `get_max_degree()` and `generate_trees()` across multiple values of n, including edge cases like n=2, max_degree=1, and stop_at=3. All 18 passed on the first run.
+18 tests were written covering `get_max_degree()` and `generate_trees()` across multiple values of n, including edge cases like n=2, max_degree=1, and stop_at=3. All 18 passed on the first run.\
+
+
+Test Group    |     Cases    |    Passed       |   Failed
+________________________________________________________
+get_max_degree()   |  4      |       4         |   0 
+________________________________________________________
+generate_trees()    14       |      14         |   0
+________________________________________________________
+
+here no faliures were encountred unlike the decode_pufer tests.where expected values had to be traced manually. whereas, generste_trees could be verified using the cayley's formula.which confirm that n=4 must produce excatly 16 trees.
 
 ---
 
@@ -212,4 +230,3 @@ Error-handling tests:
 4. Python Software Foundation. (2024). *itertools — Functions creating iterators for efficient looping*. Python 3 Documentation. https://docs.python.org/3/library/itertools.html
 5. NetworkX Development Team. (n.d.). *Tutorial*. https://networkx.org/documentation/stable/tutorial.html
 6. Matplotlib Development Team. (n.d.). *Tutorials*. https://matplotlib.org/stable/tutorials/index.html
-7. Anthropic. (2024). *Claude AI* [AI assistant]. https://www.anthropic.com
