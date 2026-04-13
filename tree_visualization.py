@@ -1,5 +1,3 @@
-
-
 #Create one combined image containing up to 100 generated trees.
 
 import json
@@ -8,7 +6,6 @@ import os
 import matplotlib.pyplot as plt
 import networkx as nx
 
-
 N_VERTICES = 7
 MAX_TREES = 100
 INPUT_FILE = "accepted_trees.json"
@@ -16,6 +13,7 @@ OUTPUT_FOLDER = "results"
 OUTPUT_IMAGE = "all_trees_n7_maxdeg3.png"
 COLORS = ["red", "blue", "green", "orange", "purple", "cyan", "magenta"] #Node labels are represented by colours to keep nodes small/legible.
 NODE_COLOR_MAP = {i + 1: COLORS[i] for i in range(N_VERTICES)}
+
 def load_graphs(path):
     with open(path, "r", encoding="utf-8") as f:
         accepted = json.load(f)
@@ -24,8 +22,8 @@ def load_graphs(path):
         graph = nx.Graph()
         graph.add_edges_from(edges)
         graph_list.append(graph)
-
     return graph_list
+    
 def draw_combined_image(graphs, output_path, max_trees=100):
     selected_graphs = graphs[:max_trees]
     count = len(selected_graphs)
@@ -56,7 +54,7 @@ def draw_combined_image(graphs, output_path, max_trees=100):
     for j in range(count, len(axes_list)):             # Hide extra subplot boxes when count is not a perfect square.
         axes_list[j].set_axis_off()
     fig.suptitle(
-        f"Labeled trees (n=7, max degree ≤ 3) — showing {count} trees",
+        f"Labeled trees (n=7, max degree ≤ 3) showing {count} trees",
         fontsize=14,
         y=0.995,
     )
